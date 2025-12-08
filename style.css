@@ -1,0 +1,186 @@
+body {
+    margin: 0;
+    background-color: #1b1b1b;
+    color: #e0e0e0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------------- HEADER ---------------- */
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.header h1 {
+    color: #ff8c00;
+    font-size: 32px;
+    margin: 0;
+}
+
+.header .date {
+    margin-top: 10px;
+    color: #c0c0c0;
+}
+
+/* ---------------- INTRO CARD ---------------- */
+
+.intro-card {
+    background-color: #2b2b2b;
+    padding: 40px;
+    width: 60%;
+    margin: 20px auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.intro-card h2 {
+    font-size: 28px;
+    color: #60c2ff;
+}
+
+.intro-card p {
+    color: #d0d0d0;
+    font-size: 17px;
+}
+
+/* ---------------- LATEST DATA SECTION ---------------- */
+
+.latest-data {
+    background-color: #333;
+    margin: 40px auto;
+    padding: 30px;
+    width: 70%;
+    border-radius: 8px;
+}
+
+.latest-data h2 {
+    color: #ff8c00;
+}
+
+.latest-data a {
+    color: #ffa733;
+    text-decoration: underline;
+}
+
+/* ---------------- STATS ---------------- */
+.statss {
+    width: 70%;
+    margin: 40px auto;
+    line-height: 1.6;
+}
+
+.statss h3 {
+    text-align: center;
+
+}
+.statss h4 {
+    text-align: center;
+
+}
+
+
+.stats {
+    width: 70%;
+    margin: 40px auto;
+    line-height: 1.6;
+}
+
+.stats h2 {
+    color: #ff8c00;
+}
+
+.stats h3 {
+    color: #ff8c00;
+
+}
+
+
+.stats ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.stats li {
+    margin: 15px 0;
+    padding-left: 20px;
+    border-left: 3px solid #ff8c00;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+.footer {
+    text-align: center;
+    color: #999;
+    margin: 40px 0 20px;
+}
+
+summary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker,
+summary::marker {
+  display: none;
+}
+
+summary::after {
+  content: "";
+  flex-shrink: 0;
+
+  width: 1.9em;   /* ← РАЗМЕР */
+  height: 1.9em;
+
+  background-color: #ff9800;
+
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z'/></svg>") no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z'/></svg>") no-repeat center / contain;
+
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform .35s ease;
+}
+
+
+
+details[open] > summary:after {
+  transform: rotate(90deg);
+}
+
+summary ~ * {
+   padding:0 1em 0 1em;
+}
+details[open] summary ~ *{ 
+  animation: sweep .5s ease-in-out;
+}
+@keyframes sweep {
+  0%    {opacity: 0;}
+  100%  {opacity: 1;}
+}
+summary:focus {
+  outline:0;
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.3), inset 0 0 2px rgba(0,0,0,0.3);
+}
+details{
+  display:block;
+  margin-bottom: .5rem;
+}
+
+/* Контейнер с анимацией */
+details > .content {
+  transition: 
+    grid-template-rows 0.5s cubic-bezier(.4,0,.2,1),
+    opacity 0.4s ease;
+}
+
+
+/* Открыто */
+details[open] > .content {
+  max-height: 10000px;   /* достаточно большое значение */
+  opacity: 1;
+}
+
