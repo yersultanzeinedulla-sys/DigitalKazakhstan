@@ -36,7 +36,7 @@ body {
 
 .intro-card h2 {
     font-size: 28px;
-    color: #60c2ff;
+    color: #ff8c00;
 }
 
 .intro-card p {
@@ -184,3 +184,27 @@ details[open] > .content {
   opacity: 1;
 }
 
+.slider {
+  width: 100%;
+  max-width: 900px;
+  height: 200px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  width: calc(6 * 100% / 3); /* 6 картинок, 3 уникальных — подстрой под свой набор */
+  animation: scroll 12s linear infinite;
+}
+
+.slides img {
+  width: calc(100% / 6); /* подстрой: 6 изображений всего */
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* смещение ровно на половину (т.е. 3 картинки) */
+}
