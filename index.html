@@ -241,6 +241,25 @@
             transform: translateY(35px);
             transition: opacity 0.98s cubic-bezier(.23,.96,.51,1.04), transform 0.69s;
         }
+        .slider {
+  width: 100%;
+  max-width: 900px;
+  height: 200px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  width: calc(6 * 100% / 3); /* 6 картинок, 3 уникальных — подстрой под свой набор */
+  animation: scroll 12s linear infinite;
+}
+
+.slides img {
+  width: calc(100% / 6); /* подстрой: 6 изображений всего */
+  object-fit: cover;
+}
     </style>
 </head>
 <body>
@@ -251,6 +270,18 @@
             Қазіргі заманда цифрландыру экономикалық және әлеуметтік дамудың кілтіне айналды. Қазақстан <span class="highlight">«Цифрлық Қазақстан»</span> бағдарламасы аясында ауқымды жобаларды іске асырады, бұл қоғамның барлық саласын – электрондық үкімет пен ЖИ-ден бастап, цифрлық инфрақұрылым мен азаматтардың әдеттеріне дейін қамтиды.
         </p>
     </header>
+
+    <div class="slider">
+    <div class="slides">
+        <img src="картинка11.png" alt="a">
+        <img src="картинка2.jpg" alt="b">
+        <img src="3.jpg" alt="c">
+
+        <img src="картинка11.png" alt="a">
+        <img src="картинка2.jpg" alt="b">
+        <img src="3.jpg" alt="c">
+    </div>
+</div>
 
     <main>
         <!-- 1. Бөлім: Қазақстандағы цифрлық технологиялардың жағдайы -->
@@ -526,6 +557,7 @@
     </script>
 </body>
 </html>
+
 
 
 
