@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>LinkedIn — Қазақстандағы ықпал мен мансап</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        :root {
+            --main-bg: #07141f;
+            --accent: #0A66C2; /* LinkedIn көк */
+            --soft-accent: #1e8fff; /* Ашық көк */
+            --text-main: #fff;
+            --text-secondary: #c0c8d2;
+            --border: #34536a;
+            --section: #0c2337;
+            --linkedin-blue: #0A66C2;
+        }
+        html {
+            background: var(--main-bg);
+            color: var(--text-main);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #0c2233 55%, #193250 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyber-header {
+            padding: 56px 15px 38px 15px;
+            background: linear-gradient(90deg, #07141f 70%, #154484 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-header-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+        .logo-svg {
+            width: 42px;
+            height: 42px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        .cyber-header h1 {
+            font-size: 2.62rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2.2px;
+            filter: drop-shadow(0 0 11px #193250b3);
+            animation: text-slide-in 1.7s cubic-bezier(.47,.97,.33,1.09);
+            background: linear-gradient(90deg, var(--accent) 0%, var(--soft-accent) 65%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--accent);
+        }
+        .cyber-header p {
+            font-size: 1.13rem;
+            color: var(--text-secondary);
+            margin-top: 31px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            animation: fade-in-text 2s 0.3s backwards;
+            max-width: 900px;
+            display: inline-block;
+        }
+        @keyframes text-slide-in {
+          0% { opacity:0; filter: blur(12px) grayscale(1); transform: translateY(60px);}
+          50% { opacity:0.3;}
+          100%{opacity:1; filter:none; transform: none;}
+        }
+        @keyframes fade-in-text {
+          0% {opacity: 0; filter: blur(7px);}
+          100% {opacity:1; filter: none;}
+        }
+        .section {
+            background: var(--section);
+            border-radius: 19px;
+            box-shadow: 0 4px 24px #141a2367, 0 1.5px 7px #072a43a8;
+            margin: 34px auto 34px auto;
+            max-width: 1100px;
+            padding: 42px 36px 36px 36px;
+            position: relative;
+            transition: box-shadow 0.21s;
+            border-left: 7px solid var(--accent);
+            animation: fade-in-text 1.25s;
+        }
+        .section-title {
+            font-size: 2.04rem;
+            color: var(--accent);
+            margin-bottom: 14px;
+            font-weight: bold;
+            letter-spacing: 1.7px;
+            filter: drop-shadow(0 2px 8px #0a66c279);
+            animation: stagger-fade 1.3s;
+        }
+        @keyframes stagger-fade {
+            from { opacity: 0; transform: translateX(-25px);}
+            to { opacity: 1; transform: none;}
+        }
+        .stat-list {
+            margin: 0 0 28px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-list li {
+            margin-bottom: 18px;
+            padding-left: 21px;
+            position: relative;
+            font-size: 1.09em;
+        }
+        .stat-list li:before {
+            content: '';
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: linear-gradient(90deg, var(--accent), var(--soft-accent) 95%);
+            box-shadow: 0 0 13px var(--soft-accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+            gap: 28px;
+            margin: 35px 0;
+        }
+        .info-box {
+            background: #14233aeb;
+            border-radius: 14px;
+            padding: 24px 20px 18px 24px;
+            box-shadow: 0 1.5px 8px #1e8fff24;
+            border-left: 4px solid var(--accent);
+            transition: box-shadow 0.21s, border-left-color 0.35s;
+            animation: fade-in-text 1.3s;
+        }
+        .info-box:hover {
+            box-shadow: 0 0 27px #0a66c255, 0 1.5px 8px #1e8fff44;
+            border-left-color: var(--soft-accent);
+            transform: translateY(-4px) scale(1.01);
+        }
+        .info-box h3 {
+            font-size: 1.18rem;
+            color: var(--soft-accent);
+            margin-bottom: 9px;
+            font-weight: 600;
+            letter-spacing: .7px;
+        }
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0 5px 0;
+            background: #193454e3;
+            border-radius: 11px;
+            overflow: hidden;
+            box-shadow: 0 2px 13px #0a66c219;
+            font-size: 1.07em;
+        }
+        .styled-table th, .styled-table td {
+            padding: 11px 19px;
+            text-align: left;
+        }
+        .styled-table th {
+            background: linear-gradient(93deg, #2795e9 12%, #0A66C2 94%);
+            color: #e7f3ff;
+            font-weight: 700;
+            border-bottom: 2.3px solid var(--accent);
+        }
+        .styled-table tr {
+            transition: background 0.15s;
+        }
+        .styled-table tr:hover {
+            background: #162b46;
+        }
+        .styled-table td {
+            color: var(--text-main);
+            border-bottom: 1px solid #25395a76;
+        }
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #127bc41a;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 8px #1187eb10;
+        }
+        .highlight {
+            color: var(--soft-accent);
+            font-weight: 600;
+        }
+        .demography {
+            color: var(--text-secondary);
+            font-size: 0.97em;
+            margin-top: 3px;
+            margin-left: 31px;
+        }
+        @media (max-width: 950px) {
+            .section { padding: 30px 7vw 24px 5vw;}
+            .styled-table th, .styled-table td {padding:8px 7px;}
+        }
+        @media (max-width: 520px) {
+            .cyber-header h1 {font-size:1.21rem;}
+            .section-title {font-size:1.04rem;}
+            .section {padding:14vw 3vw;}
+            .logo-svg {width:30px;height:30px;}
+        }
+        .aos-animate {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.98s cubic-bezier(.23,.96,.51,1.04), transform 0.69s;
+        }
+    </style>
+</head>
+<body>
+    <section class="cyber-header">
+        <h1>
+            <span class="logo-pill">
+                <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="2" width="28" height="28" rx="6" fill="#0A66C2"/>
+                  <path d="M10.42 13.56H7.85V24H10.42V13.56ZM9.13 8C8.12 8 7.33 8.79 7.33 9.77C7.33 10.75 8.11 11.56 9.11 11.56H9.13C10.15 11.56 10.93 10.75 10.93 9.77C10.93 8.79 10.15 8 9.13 8ZM24.67 17.82C24.67 14.66 23.97 12.56 20.73 12.56C19.1 12.56 18.05 13.47 17.59 14.28H17.55V13.56H14.99V24H17.67V18.21C17.67 16.71 17.97 15.26 19.82 15.26C21.63 15.26 21.66 16.99 21.66 18.29V24H24.34V18.21C24.34 15.07 24.67 17.82 24.67 17.82Z" fill="#fff"/>
+                </svg>
+                LinkedIn
+            </span>
+             — Қазақстандағы мансап және кәсіби байланыс
+        </h1>
+        <p>
+            LinkedIn — әлем бойынша кәсіби нетворкинг пен мансап құруға арналған ең ірі әлеуметтік желі. Қазақстанда LinkedIn кәсібилік, байланыс орнату және жаңа жұмыс мүмкіндіктерін табу үшін маңызды алаңға айналды. Бұл платформада мамандар тәжірибе алмасып, жұмыс берушілер мен HR-менеджерлер таланттарды іздейді, кәсіби құндылықтар жинақталады.
+        </p>
+    </section>
+    <section class="section">
+        <div class="section-title">LinkedIn-нің Қазақстандағы танымалдығы</div>
+        <ul class="stat-list">
+            <li>2024 жылы Қазақстанда шамамен <span class="highlight">2 млн+</span> LinkedIn қолданушысы тіркелген (<span class="highlight">интернетке шығатын халықтың 10%+</span> бөлігі).</li>
+            <li>LinkedIn университет түлектері, IT, бизнес, қаржы, маркетинг, инженерия және басқа <span class="highlight">сала мамандарына</span> арналған басты кәсіби платформаға айналуда.</li>
+            <li>Платформада Қазақстандағы <span class="highlight">50 000+</span> компания мен ұйымның ресми беттері бар.</li>
+            <li>LinkedIn арқылы жұмыс іздеушілер <span class="highlight">жүздеген халықаралық және жергілікті вакансия</span> табады, әрі тәжірибе мен білім алмасады.</li>
+            <li>Қазақстандық кәсіби қоғамдастықтар, салалық топтар және трендтік қауымдастықтар LinkedIn-де белсенді дамып жатыр.</li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Кәсіби байланыстар мен нетворкинг</h3>
+                <p>
+                    • LinkedIn арқылы мамандар саладағы кәсіби байланыстарын кеңейтеді.<br>
+                    • <span class="highlight">Жобалар, серіктестік пен тәлімгерлік</span> мүмкіндіктері ашылады.<br>
+                    • LinkedIn-профиль – заманауи түйіндеме және жеке брендинг құралы.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Жұмыс табу және мансаптық өсу</h3>
+                <p>
+                    • Жұмыс берушілер LinkedIn арқылы таланттарды іздейді, <span class="highlight">headhunting, рекрутинг пен HR</span> процестері жиілеген.<br>
+                    • Жаңа вакансиялар, стажировкалар мен халықаралық жобаларға қатысу мүмкіндігі.<br>
+                    • Қолданушылар <span class="highlight">жұмыс ұсыныстарын</span> тікелей ала алады.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Қазақстандағы қоғамға әсері</h3>
+                <p>
+                    • LinkedIn-блогтар мен сарапшылық жазбалар қазақстандық ІТ, бизнес, ғылым дамуына сеп болды.<br>
+                    • Платформада <span class="highlight">білім, трендтер және тәжірибе</span> ашық таралып, кәсіби орта қалыптасуда.<br>
+                    • Қазақстандық мамандардың әлемдік еңбек нарығына шығуы жеңілдеді.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">LinkedIn-нің қоғамға ықпалы: пайдалар мен сын</div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Пайдалы жақтары</h3>
+                <p>
+                    • Қазақстандық жастар мен мамандар <span class="highlight">жаңа жұмыс орындарын</span> оңай табады.<br>
+                    • Халықаралық нетворк арқылы <span class="highlight">білім мен тәжірибе алмасу</span> мүмкіндігі.<br>
+                    • Кәсіби даму мен <span class="highlight">тұлғалық өсуге</span> жол ашады.<br>
+                    • Қазақстандық компаниялар мен стартаптар <span class="highlight">әлемдік деңгейде танылады</span>.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Сын-тегеуріндер мен тәуекелдер</h3>
+                <p>
+                    • Барлық өңірлер мен мамандықтар арасында <span class="highlight">тең мүмкіндік</span> толық қалыптаса қойған жоқ.<br>
+                    • Сcam және жалған вакансиялар қаупі сақталады.<br>
+                    • Ағылшын тілі мен цифрлық сауаттылық талаптары.<br>
+                    • Басқа әлеуметтік желілерге қарағанда аудиториясын әлі де кеңейтуі қажет.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">LinkedIn деректері – Қазақстан бойынша</div>
+        <ul class="stat-list">
+            <li>2024: Қазақ тілінде LinkedIn профилдер саны <span class="highlight">өсті</span>, демек, ұлттық кәсіби орта дамуда.</li>
+            <li>Қазақстандық қолданушылардың негізгі бөлігі — <span class="highlight">20–40 жас аралығындағы</span> мамандар мен студенттер.</li>
+            <li>IT, қаржы, маркетинг, білім, инженерия және медицина салалары <span class="highlight">ең белсенді</span> қолданушы сегменттері.</li>
+            <li>LinkedIn арқылы қазақстандықтар <span class="highlight">шетелдік жұмысқа</span> орналасу мүмкіндігін де пайдаланып отыр.</li>
+            <li>Жергілікті кәсіби топтар (мысалы, "Kazakh IT Community", "HR Kazakhstan" және т.б.) LinkedIn-де тұрақты өсуде.</li>
+        </ul>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Сала</th>
+                    <th>Қолданушылардың үлесі (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IT және Digital</td>
+                    <td>33</td>
+                </tr>
+                <tr>
+                    <td>Бизнес және қаржы</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>Білім және ғылым</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>Инженерия және өндіріс</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>Денсаулық сақтау</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Басқа</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer style="text-align:center;margin:42px 0 19px 0;color:var(--text-secondary);font-size:.96em;">
+        © 2024 LinkedIn беделі | Дереккөздер: <a style="color:var(--accent);" href="https://datareportal.com/reports/digital-2024-kazakhstan" target="_blank" rel="noopener">datareportal.com</a>, LinkedIn Қазақстан статистикасы.
+    </footer>
+</body>
+</html>

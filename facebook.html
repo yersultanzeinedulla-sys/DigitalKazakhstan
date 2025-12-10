@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook — Қазақстандағы байланыс пен қоғамға әсер</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        :root {
+            --main-bg: #162840;
+            --accent: #1a5cff;
+            --soft-accent: #51aaff;
+            --text-main: #fffefc;
+            --text-secondary: #d2e0f6;
+            --border: #295dab;
+            --section: #203a63;
+            --box-bg: #295dab18;
+        }
+        html {
+            background: var(--main-bg);
+            color: var(--text-main);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #162840 60%, #2e548b 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyber-header {
+            padding: 56px 15px 38px 15px;
+            background: linear-gradient(90deg, #203a63 55%, #3371c3 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-header h1 {
+            font-size: 2.62rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2.2px;
+            margin: 0;
+            filter: drop-shadow(0 0 11px #203a633a);
+            animation: text-slide-in 1.7s cubic-bezier(.47,.97,.33,1.09);
+            background: linear-gradient(90deg, var(--accent) 80%, var(--soft-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cyber-header p {
+            font-size: 1.13rem;
+            color: var(--text-secondary);
+            margin-top: 29px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            animation: fade-in-text 2s 0.4s backwards;
+            max-width: 850px;
+            display: inline-block;
+        }
+        @keyframes text-slide-in {
+            0% { opacity:0; filter: blur(12px) grayscale(1); transform: translateY(60px);}
+            50% { opacity:0.3;}
+            100%{opacity:1; filter:none; transform: none;}
+        }
+        @keyframes fade-in-text {
+            0% {opacity: 0; filter: blur(7px);}
+            100% {opacity:1; filter: none;}
+        }
+        .section {
+            background: var(--section);
+            border-radius: 19px;
+            box-shadow: 0 4px 24px #14213180, 0 1.5px 7px #295dab67;
+            margin: 34px auto 34px auto;
+            max-width: 1100px;
+            padding: 42px 36px 36px 36px;
+            position: relative;
+            transition: box-shadow 0.21s;
+            border-left: 7px solid var(--accent);
+            animation: fade-in-text 1.25s;
+        }
+        .section-title {
+            font-size: 2.04rem;
+            color: var(--soft-accent);
+            margin-bottom: 14px;
+            font-weight: bold;
+            letter-spacing: 1.7px;
+            filter: drop-shadow(0 2px 8px #51aaff14);
+            animation: stagger-fade 1.3s;
+        }
+        @keyframes stagger-fade {
+            from { opacity: 0; transform: translateX(-25px);}
+            to { opacity: 1; transform: none;}
+        }
+        .stat-list {
+            margin: 0 0 28px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-list li {
+            margin-bottom: 18px;
+            padding-left: 21px;
+            position: relative;
+            font-size: 1.12em;
+        }
+        .stat-list li:before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(90deg, var(--soft-accent), #1a5cff 95%);
+            box-shadow: 0 0 10px var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 11px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+            gap: 28px;
+            margin: 35px 0;
+        }
+        .info-box {
+            background: var(--box-bg);
+            border-radius: 14px;
+            padding: 24px 20px 18px 24px;
+            box-shadow: 0 1.5px 8px #1a5cff21;
+            border-left: 4px solid var(--soft-accent);
+            transition: box-shadow 0.21s, border-left-color 0.35s;
+            animation: fade-in-text 1.3s;
+        }
+        .info-box:hover {
+            box-shadow: 0 0 25px #1a5cff41, 0 1.5px 8px #51aaff2b;
+            border-left-color: var(--accent);
+            transform: translateY(-4px) scale(1.01);
+        }
+        .info-box h3 {
+            font-size: 1.18rem;
+            color: var(--accent);
+            margin-bottom: 9px;
+            font-weight: 600;
+            letter-spacing: .7px;
+        }
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        /* Таблицу (styled-table) и стили для нее больше не нужны */
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #295dab18;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 7px #51aaff15;
+        }
+        .logo-svg {
+            width: 52px;
+            height: 52px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        .highlight {
+            color: var(--soft-accent);
+            font-weight: 700;
+            background: #1a5cff38;
+            padding: 1px 5px;
+            border-radius: 5px;
+        }
+        .demography {
+            color: var(--soft-accent);
+            font-size: 0.99em;
+            margin-top: 3px;
+            margin-left: 31px;
+        }
+        @media (max-width: 950px) {
+            .section { padding: 30px 7vw 24px 5vw;}
+        }
+        @media (max-width: 520px) {
+            .cyber-header h1 {font-size:1.21rem;}
+            .section-title {font-size:1.04rem;}
+            .section {padding:14vw 3vw;}
+        }
+        .aos-animate {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.98s cubic-bezier(.23,.96,.51,1.04), transform 0.69s;
+        }
+    </style>
+</head>
+<body>
+    <section class="cyber-header">
+        <h1>
+            <span class="logo-pill">
+                <svg class="logo-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="56" height="56" rx="12" fill="url(#fbblue)"/>
+                    <path d="M36.13 28H30.8V45H23.61V28H20V22.43H23.61V19.33C23.61 15.13 25.86 13 30.53 13C32.34 13 33.74 13.13 34.16 13.18V18.46H31.44C29.95 18.46 29.63 19.16 29.63 20.21V22.43H34L33.37 28Z" fill="white"/>
+                    <defs>
+                      <radialGradient id="fbblue" cx="30" cy="25" r="38" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#1a5cff"/>
+                        <stop offset="1" stop-color="#4684c7"/>
+                      </radialGradient>
+                    </defs>
+                </svg>
+                Facebook
+            </span>
+            — Қазақстандағы қоғамды біріктіретін желі
+        </h1>
+        <p>
+            Facebook — бұл Қазақстандағы және бүкіл әлемдегі адамдарды біріктіретін ірі әлеуметтік медиа платформа. Елде Facebook жастардан бастап ересек азаматтарға дейін кәсіби байланыс, жаңалық алмасу және қоғаммен өзекті мәселелерді талқылау үшін қолданылады.
+        </p>
+    </section>
+    <section class="section">
+        <div class="section-title">Facebook-тің Қазақстандағы танымалдылығы</div>
+        <ul class="stat-list">
+            <li>
+                2024 жылы Қазақстанда <span class="highlight">2,6 миллионнан астам</span> белсенді Facebook қолданушысы бар (<span class="highlight">халықтың ≈ 13%-ы</span>).
+            </li>
+            <li>
+                Facebook — еліміздегі <span class="highlight">аға ұрпақ пен кәсіпқойлар</span> арасында кеңінен таралған негізгі әлеуметтік желі.
+            </li>
+            <li>
+                <span class="highlight">25–44 жас аралығындағы</span> аудитория ең белсенді сегментті құрайды (журналистер, сарапшылар, IT-мамандар, мемлекеттік қызметкерлер).
+            </li>
+            <li>
+                Мемлекеттік органдар, қоғамдық ұйымдар және бизнес Facebook-ті <span class="highlight">ресми ақпарат тарату</span> және қоғаммен байланыс орнату үшін пайдаланады.
+            </li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Контент пен қауымдастықтар</h3>
+                <p>
+                    • Facebook-та қазақстандық БАҚ, блогерлер мен қоғам белсенділері өз ой-пікірін бөліседі.<br>
+                    • <span class="highlight">#Kazakhstan</span>, <span class="highlight">#Astana</span>, <span class="highlight">#Bilim</span> сынды хэштегтер танымал.<br>
+                    • Ашық топтар мен қауымдастықтардың саны жылдан жылға артуда.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Бизнес пен кәсіби желі</h3>
+                <p>
+                    • Facebook – кәсіпкерлер мен компаниялар үшін брендинг және жарнама құралы.<br>
+                    • Қазақстандық кәсіпорындар өз өнімін жылжытып, клиенттермен кері байланыс орнатады.<br>
+                    • LinkedIn мен Instagram-мен қатар, Facebook кәсіби нетворкинг үшін қолданылады.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Қоғамдық пікір мен азаматтық белсенділік</h3>
+                <p>
+                    • Facebook — қоғамдағы әлеуметтік және саяси сұрақтар бойынша пікірталастардың орталығы.<br>
+                    • Елдегі маңызды жаңалықтар мен өзекті ақпарат алғашқылардың бірі болып Facebook-та таралады.<br>
+                    • Қайырымдылық, волонтерлік жобалар Facebook арқылы ұйымдастырылады.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">Facebook — қоғамға әсері мен қауіптері</div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Артықшылықтары</h3>
+                <p>
+                    • Ақпаратқа жылдам қолжетімділік;<br>
+                    • Шынайы кәсіби және қоғамдық байланыстар құру;<br>
+                    • Мемлекеттік органдар мен халық арасындағы ашық коммуникация;<br>
+                    • Оқу, сараптама және тәжірибе алмасу мүмкіндігі.<br>
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Қауіптер мен сын</h3>
+                <p>
+                    • Жалған ақпарат тарату қаупі;<br>
+                    • Хакерлік шабуылдар мен фишинг;<br>
+                    • Пайдаланушылардың жеке деректерінің қауіпсіздігі;<br>
+                    • Токсикалық пікірталастар мен кибербуллинг.<br>
+                </p>
+            </div>
+        </div>
+    </section>
+   
+    <footer style="text-align:center;margin:42px 0 19px 0;color:var(--soft-accent);font-size:.96em;">
+        © 2024 Facebook ықпалы | Дереккөздер: <a style="color:var(--soft-accent);" href="https://datareportal.com/reports/digital-2024-kazakhstan" target="_blank" rel="noopener">datareportal.com</a>
+    </footer>
+</body>
+</html>
