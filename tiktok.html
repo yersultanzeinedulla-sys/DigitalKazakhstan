@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTok — Қазақстандағы ықпал мен тренд</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        :root {
+            --main-bg: #101010;
+            --accent: #25F4EE; /* TikTok cyan */
+            --soft-accent: #FE2C55; /* TikTok pink */
+            --text-main: #fff;
+            --text-secondary: #c0c8d2;
+            --border: #34536a;
+            --section: #161823;
+            --tiktok-black: #000;
+        }
+        html {
+            background: var(--main-bg);
+            color: var(--text-main);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #17191c 55%, #23232b 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyber-header {
+            padding: 56px 15px 38px 15px;
+            background: linear-gradient(90deg, #0F0F0F 70%, #18181D 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-header-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+        .tiktok-svg {
+            width: 48px;
+            height: 48px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .cyber-header h1 {
+            font-size: 2.62rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2.2px;
+            filter: drop-shadow(0 0 11px #1a1818c5);
+            animation: text-slide-in 1.7s cubic-bezier(.47,.97,.33,1.09);
+            background: linear-gradient(90deg, var(--soft-accent) 5%, var(--accent) 50%, #fff 95%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--accent);
+        }
+        .cyber-header p {
+            font-size: 1.14rem;
+            color: var(--text-secondary);
+            margin-top: 31px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            animation: fade-in-text 2s 0.4s backwards;
+            max-width: 900px;
+            display: inline-block;
+        }
+        @keyframes text-slide-in {
+          0% { opacity:0; filter: blur(12px) grayscale(1); transform: translateY(60px);}
+          50% { opacity:0.3;}
+          100%{opacity:1; filter:none; transform: none;}
+        }
+        @keyframes fade-in-text {
+          0% {opacity: 0; filter: blur(7px);}
+          100% {opacity:1; filter: none;}
+        }
+        .section {
+            background: var(--section);
+            border-radius: 19px;
+            box-shadow: 0 4px 24px #14151a67, 0 1.5px 7px #091a27a8;
+            margin: 34px auto 34px auto;
+            max-width: 1100px;
+            padding: 42px 36px 36px 36px;
+            position: relative;
+            transition: box-shadow 0.21s;
+            border-left: 7px solid var(--soft-accent);
+            animation: fade-in-text 1.25s;
+        }
+        .section-title {
+            font-size: 2.04rem;
+            color: var(--soft-accent);
+            margin-bottom: 14px;
+            font-weight: bold;
+            letter-spacing: 1.7px;
+            filter: drop-shadow(0 2px 8px #fe2c5560);
+            animation: stagger-fade 1.3s;
+        }
+        @keyframes stagger-fade {
+            from { opacity: 0; transform: translateX(-25px);}
+            to { opacity: 1; transform: none;}
+        }
+        .stat-list {
+            margin: 0 0 28px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-list li {
+            margin-bottom: 18px;
+            padding-left: 21px;
+            position: relative;
+            font-size: 1.09em;
+        }
+        .stat-list li:before {
+            content: '';
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: linear-gradient(90deg, var(--accent), var(--soft-accent) 95%);
+            box-shadow: 0 0 13px var(--soft-accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+            gap: 28px;
+            margin: 35px 0;
+        }
+        .info-box {
+            background: #18181dd0;
+            border-radius: 14px;
+            padding: 24px 20px 18px 24px;
+            box-shadow: 0 1.5px 8px #FE2C5527;
+            border-left: 4px solid var(--accent);
+            transition: box-shadow 0.21s, border-left-color 0.35s;
+            animation: fade-in-text 1.3s;
+        }
+        .info-box:hover {
+            box-shadow: 0 0 27px #25f4ee55, 0 1.5px 8px #fe2c5544;
+            border-left-color: var(--soft-accent);
+            transform: translateY(-4px) scale(1.01);
+        }
+        .info-box h3 {
+            font-size: 1.18rem;
+            color: var(--accent);
+            margin-bottom: 9px;
+            font-weight: 600;
+            letter-spacing: .7px;
+        }
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0 5px 0;
+            background: #202c41e3;
+            border-radius: 11px;
+            overflow: hidden;
+            box-shadow: 0 2px 13px #215b9e19;
+            font-size: 1.07em;
+        }
+        .styled-table th, .styled-table td {
+            padding: 11px 19px;
+            text-align: left;
+        }
+        .styled-table th {
+            background: linear-gradient(93deg, #2cbef6 20%, #4bbbdc 93%);
+            color: #153145;
+            font-weight: 700;
+            border-bottom: 2.3px solid var(--accent);
+        }
+        .styled-table tr {
+            transition: background 0.15s;
+        }
+        .styled-table tr:hover {
+            background: #1e3145;
+        }
+        .styled-table td {
+            color: var(--text-main);
+            border-bottom: 1px solid #25395a76;
+        }
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #202f4217;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 7px #1ca7ce12;
+        }
+        .logo-svg {
+            width: 26px;
+            height: 26px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .demography {
+            color: var(--text-secondary);
+            font-size: 0.97em;
+            margin-top: 3px;
+            margin-left: 31px;
+        }
+        @media (max-width: 950px) {
+            .section { padding: 30px 7vw 24px 5vw;}
+            .styled-table th, .styled-table td {padding:8px 7px;}
+        }
+        @media (max-width: 520px) {
+            .cyber-header h1 {font-size:1.21rem;}
+            .section-title {font-size:1.04rem;}
+            .section {padding:14vw 3vw;}
+        }
+        .aos-animate {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.98s cubic-bezier(.23,.96,.51,1.04), transform 0.69s;
+        }
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #4b227c0f;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 7px #ae46fe12;
+        }
+        .logo-svg {
+            width: 52px;
+            height: 52px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <section class="cyber-header">
+        <h1><span class="logo-pill">
+            <svg class="logo-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.459 6.84582V10.5048C22.2623 10.5048 22.0262 10.5442 21.7902 10.5442C20.0197 10.5442 18.3672 9.87532 17.1082 8.81303V16.6032C17.1082 18.177 16.5967 19.672 15.6918 20.8524C14.4328 22.5442 12.3869 23.6852 10.0656 23.6852C7.54755 23.6852 5.34428 22.3475 4.1246 20.3802C5.38362 21.5606 7.07542 22.3081 8.9246 22.3081C11.2066 22.3081 13.2525 21.2065 14.5115 19.4753C15.3771 18.295 15.9279 16.8393 15.9279 15.2261V7.39664C17.1869 8.49828 18.8 9.12778 20.6098 9.12778C20.8459 9.12778 21.0426 9.12778 21.2787 9.08844V6.72778C21.6328 6.80647 21.9476 6.84582 22.3017 6.84582H22.459Z" fill="#FF004F"/>
+                <path d="M11.0492 9.56058V13.613C10.7738 13.5344 10.459 13.495 10.1836 13.495C8.45246 13.495 7.03606 14.9507 7.03606 16.7212C7.03606 17.1147 7.11475 17.4688 7.23279 17.8229C6.4459 17.2327 5.89508 16.2885 5.89508 15.2262C5.89508 13.4557 7.31147 11.9999 9.04262 11.9999C9.35738 11.9999 9.63279 12.0393 9.9082 12.118V9.52124C9.98688 9.52124 10.0656 9.52124 10.1443 9.52124C10.459 9.52124 10.7738 9.52124 11.0492 9.56058Z" fill="#FF004F"/>
+                <path d="M17.6984 3.93442C16.9902 3.30492 16.4787 2.43934 16.2033 1.53442H17.1475C17.1475 1.73115 17.1475 1.88852 17.1475 2.08524C17.2262 2.71475 17.4229 3.34426 17.6984 3.93442Z" fill="#FF004F"/>
+                <path d="M21.318 6.76721V9.12787C21.1213 9.16721 20.8853 9.16721 20.6492 9.16721C18.8787 9.16721 17.2262 8.49836 15.9672 7.43606V15.2262C15.9672 16.8 15.4558 18.2951 14.5508 19.4754C13.2525 21.2066 11.2459 22.3082 8.96395 22.3082C7.11477 22.3082 5.42297 21.5607 4.16395 20.3803C3.4951 19.2787 3.10165 18.0197 3.10165 16.6426C3.10165 12.8262 6.13116 9.71803 9.90821 9.6V12.1967C9.6328 12.118 9.31805 12.0787 9.04264 12.0787C7.31149 12.0787 5.8951 13.5344 5.8951 15.3049C5.8951 16.3672 6.40657 17.3508 7.2328 17.9016C7.66559 19.1213 8.84592 20.0262 10.1836 20.0262C11.9148 20.0262 13.3312 18.5705 13.3312 16.8V1.53442H16.2033C16.4787 2.47869 16.9902 3.30492 17.6984 3.93442C18.4066 5.35082 19.7443 6.41311 21.318 6.76721Z" fill="#000000"/>
+                <path d="M9.9082 8.18367V9.52137C6.13115 9.63941 3.10164 12.7476 3.10164 16.564C3.10164 17.941 3.49508 19.2001 4.16393 20.3017C2.82623 19.0033 2 17.1935 2 15.1476C2 11.2525 5.14754 8.10498 9.00328 8.10498C9.31803 8.10498 9.63279 8.14432 9.9082 8.18367Z" fill="#00F7EF"/>
+                <path d="M16.2033 1.53443H13.3311V16.7213C13.3311 18.4918 11.9148 19.9475 10.1836 19.9475C8.80656 19.9475 7.66557 19.082 7.23279 17.823C7.74426 18.177 8.37377 18.4131 9.04262 18.4131C10.7738 18.4131 12.1902 16.9967 12.1902 15.2262V0H16.0066V0.0786885C16.0066 0.236066 16.0066 0.393443 16.0459 0.55082C16.0459 0.865574 16.1246 1.21967 16.2033 1.53443Z" fill="#00F7EF"/>
+                <path d="M21.318 5.31138V6.72777C19.7443 6.41301 18.4066 5.35072 17.659 3.93433C18.6426 4.83924 19.9016 5.35072 21.318 5.31138Z" fill="#00F7EF"/>
+                </svg>
+            TikTok
+        </span>
+     — Қазақстандағы тренд және ықпал</h1>
+        <p>
+            TikTok – қысқа видеоларды жариялап, креативті контент жасауға мүмкіндік беретін әлемдік әлеуметтік желі. Қазақстанда TikTok жастар мен жасөспірімдер арасында өте танымал болып, мәдениет, бизнес, ҚОҒАМ және білімде жаңа трендтер туындатуда. Бұл платформа заманауи коммуникация мен өзін-өзі көрсету құралына айналды.
+        </p>
+    </section>
+    <section class="section">
+        <div class="section-title">TikTok-тың Қазақстандағы танымалдығы</div>
+        <ul class="stat-list">
+            <li>2024 жылы Қазақстанда <span class="highlight">6,8 млн+</span> белсенді TikTok қолданушысы бар (<span class="highlight">халықтың 30%-ы</span> жуығы).</li>
+            <li>TikTok еліміздегі <span class="highlight">№1 бейневидео-платформа</span> мәртебесіне жақындады: орташа алғанда қолданушы <span class="highlight">күніне 1 сағаттан астам</span> уақыт өткізеді.</li>
+            <li><span class="highlight">14–35 жас аралығы</span> – ең белсенді аудитория (оқушылар, студенттер, жас кәсіпкерлер, инфлюенсерлер).</li>
+            <li>TikTok арқылы <span class="highlight">қазақстандық контент</span> пен мемлекеттік тілді жылжыту жүріп жатыр; креатив видеолар, челлендждер және трендтер ұлттық сипатқа ие болуда.</li>
+            <li>Тұрмыстық лайфхактар мен білім беретін видеолар <span class="highlight">миллиондаған қаралым жинайды</span>.</li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Контент трендтері</h3>
+                <p>
+                    • Қазақстандық TikTok-та әнұран, ұлттық тағам, дәстүр, әзіл-жаңалық контенттері кең танымал.<br>
+                    • <span class="highlight">#oqyQT</span>, <span class="highlight">#bilimtime</span> және басқа білім хэштегтері кең тараған.<br>
+                    • Кәсіпкерлер мен шағын бизнестің жарнамалық видеолары да белсенді жарияланады.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Бизнес және жаңа жұмыс орындары</h3>
+                <p>
+                    • TikTok платформасында инфлюенсерлер мен SMM-мамандар, видеографтар үшін жаңа нарық пайда болды.<br>
+                    • Брендтер <span class="highlight">TikTok арқылы өнімдерін жарнамалайды</span> және аудиториямен байланыс орнатады.<br>
+                    • Кейбір қолданушылар <span class="highlight">миллиондаған жазылушымен</span> табыс тауып отыр.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Қоғамға әсері</h3>
+                <p>
+                    • TikTok арқылы әлеуметтік мәселелер шумағы (экология, буллинг, құқықтық сауаттылық, денсаулық) кеңінен талқыланады.<br>
+                    • Волонтерлік бастамалар мен қайырымдылық жобалар TikTok-тың арқасында жаппай қолдауға ие.<br>
+                    • Мемлекеттік органдар мен БАҚ тар жаңа форматтағы байланыс үшін TikTok-ты пайдаланады.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">TikTok-тың қоғамға ықпалы: пайдалар мен тәуекелдер</div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Пайдалы жақтары</h3>
+                <p>
+                    • Көрермендердің шығармашылығын дамытады.<br>
+                    • Мемлекеттік тіл, ұлттық-мәдени құндылықтарды таратуға жол ашады.<br>
+                    • Білім, құқықтық сауаттылық, денсаулық бойынша пайдалы ақпарат жылдам таралады.<br>
+                    • Бизнес пен жеке брендті жылжыту мүмкіндігі.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Тәуекелдер мен сын</h3>
+                <p>
+                    • Уақытты көп жұмсау, "цифрлық тәуелділік" қауіпі.<br>
+                    • Жалған немесе күмәнді ақпарат таралуы, кибербуллинг.<br>
+                    • Жасөспірімдердің психологиялық денсаулығына әсер етіп, трендтердің теріс ықпалы болуы мүмкін.<br>
+                    • Ұлттық құндылықтарды бұрмалап көрсету қаупі мен вульгарлық контенттің жайылуы.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">TikTok фактілері – Қазақстанда</div>
+        <ul class="stat-list">
+            <li>2024: TikTok-та <span class="highlight">қазақстандықтар жасаған видеолар 2 млрд-тан астам қаралым жинады</span>.</li>
+            <li>Тіл саясаты: видеолардың шамамен <span class="highlight">47%-ы қазақ тілінде</span> түсіріледі, бұл ұлттық контенттің тез өсуіне жол ашты.</li>
+            <li>TikTok контент-мейкерлері қазақстандық интернет мәдениетіне айтарлықтай ықпал етуде — ұлттық әзіл, тренд пен челлендждер дүниеге келеді.</li>
+            <li>Мемлекеттік ұйымдар, университеттер мен медиа TikTok-та ресми аккаунттар ашып, жастар аудиториясын баурауда.</li>
+        </ul>
+    </section>
+    <footer style="text-align:center;margin:42px 0 19px 0;color:var(--text-secondary);font-size:.96em;">
+        © 2024 TikTok беделі | Дереккөздер: <a style="color:var(--accent);" href="https://datareportal.com/reports/digital-2024-kazakhstan" target="_blank" rel="noopener">datareportal.com</a>
+    </footer>
+</body>
+</html>

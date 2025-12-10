@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Telegram — Қазақстандағы байланыс және еркін пікір</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        :root {
+            --main-bg: #1a2433;
+            --accent: #36aeea;
+            --soft-accent: #87cbfa;
+            --text-main: #e0f0fa;
+            --text-secondary: #aabbd1;
+            --border: #2f7cae;
+            --section: #1f2d40;
+        }
+        html {
+            background: var(--main-bg);
+            color: var(--text-main);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #1a2433 70%, #23405b 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyber-header {
+            padding: 56px 15px 38px 15px;
+            background: linear-gradient(90deg, #1d3349 70%, #36aeea 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-header h1 {
+            font-size: 2.62rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2.2px;
+            margin: 0;
+            filter: drop-shadow(0 0 11px #2176a6c5);
+            animation: text-slide-in 1.7s cubic-bezier(.47,.97,.33,1.09);
+            background: linear-gradient(90deg, var(--accent) 60%, var(--soft-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cyber-header p {
+            font-size: 1.13rem;
+            color: var(--text-secondary);
+            margin-top: 29px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            animation: fade-in-text 2s 0.4s backwards;
+            max-width: 850px;
+            display: inline-block;
+        }
+        @keyframes text-slide-in {
+            0% { opacity:0; filter: blur(12px) grayscale(1); transform: translateY(60px);}
+            50% { opacity:0.3;}
+            100%{opacity:1; filter:none; transform: none;}
+        }
+        @keyframes fade-in-text {
+            0% {opacity: 0; filter: blur(7px);}
+            100% {opacity:1; filter: none;}
+        }
+        .section {
+            background: var(--section);
+            border-radius: 19px;
+            box-shadow: 0 4px 24px #17253680, 0 1.5px 7px #318ec781;
+            margin: 34px auto 34px auto;
+            max-width: 1100px;
+            padding: 42px 36px 36px 36px;
+            position: relative;
+            transition: box-shadow 0.21s;
+            border-left: 7px solid var(--accent);
+            animation: fade-in-text 1.25s;
+        }
+        .section-title {
+            font-size: 2.04rem;
+            color: var(--accent);
+            margin-bottom: 14px;
+            font-weight: bold;
+            letter-spacing: 1.7px;
+            filter: drop-shadow(0 2px 8px #37beff35);
+            animation: stagger-fade 1.3s;
+        }
+        @keyframes stagger-fade {
+            from { opacity: 0; transform: translateX(-25px);}
+            to { opacity: 1; transform: none;}
+        }
+        .stat-list {
+            margin: 0 0 28px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-list li {
+            margin-bottom: 18px;
+            padding-left: 21px;
+            position: relative;
+            font-size: 1.09em;
+        }
+        .stat-list li:before {
+            content: '';
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: linear-gradient(90deg, var(--accent), #87cbfa 95%);
+            box-shadow: 0 0 12px var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+            gap: 28px;
+            margin: 35px 0;
+        }
+        .info-box {
+            background: #18314abe;
+            border-radius: 14px;
+            padding: 24px 20px 18px 24px;
+            box-shadow: 0 1.5px 8px #36aeea28;
+            border-left: 4px solid var(--soft-accent);
+            transition: box-shadow 0.21s, border-left-color 0.35s;
+            animation: fade-in-text 1.3s;
+        }
+        .info-box:hover {
+            box-shadow: 0 0 25px #36aeea33, 0 1.5px 8px #36aeea42;
+            border-left-color: var(--accent);
+            transform: translateY(-4px) scale(1.01);
+        }
+        .info-box h3 {
+            font-size: 1.18rem;
+            color: var(--accent);
+            margin-bottom: 9px;
+            font-weight: 600;
+            letter-spacing: .7px;
+        }
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0 5px 0;
+            background: #17324ae3;
+            border-radius: 11px;
+            overflow: hidden;
+            box-shadow: 0 2px 13px #36aeea19;
+            font-size: 1.07em;
+        }
+        .styled-table th, .styled-table td {
+            padding: 11px 19px;
+            text-align: left;
+        }
+        .styled-table th {
+            background: linear-gradient(93deg, #1ebaff 20%, #36aeea 93%);
+            color: #204356;
+            font-weight: 700;
+            border-bottom: 2.3px solid var(--accent);
+        }
+        .styled-table tr {
+            transition: background 0.15s;
+        }
+        .styled-table tr:hover {
+            background: #162d43;
+        }
+        .styled-table td {
+            color: var(--text-main);
+            border-bottom: 1px solid #2879bc63;
+        }
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #207fae16;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 7px #36aeea14;
+        }
+        .logo-svg {
+            width: 52px;
+            height: 52px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .demography {
+            color: var(--text-secondary);
+            font-size: 0.97em;
+            margin-top: 3px;
+            margin-left: 31px;
+        }
+        @media (max-width: 950px) {
+            .section { padding: 30px 7vw 24px 5vw;}
+            .styled-table th, .styled-table td {padding:8px 7px;}
+        }
+        @media (max-width: 520px) {
+            .cyber-header h1 {font-size:1.21rem;}
+            .section-title {font-size:1.04rem;}
+            .section {padding:14vw 3vw;}
+        }
+        .aos-animate {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.98s cubic-bezier(.23,.96,.51,1.04), transform 0.69s;
+        }
+    </style>
+</head>
+<body>
+    <section class="cyber-header">
+        <h1>
+            <span class="logo-pill">
+                <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="24" fill="url(#tg-blue)"/>
+                  <path d="M35.8 13.5L12.2 22.4c-1.1.4-1 1.1-.2 1.4l5.7 1.8 2.1 6.2c.3.8.5.9 1.1.6l3.2-2.5 6.6 4.8c1.2.7 2 .3 2.3-1l4-18c.3-1.3-.5-1.9-1.8-1.4zm-4.1 5.5l-8.2 8.1-.4 4.4 2-1.9 6.1 4.4c.3.2.6.1.7-.2l2.8-13.3c.1-.3-.1-.5-.5-.3z" fill="#fff"/>
+                  <defs>
+                    <radialGradient id="tg-blue" cx="0" cy="0" r="1" gradientTransform="translate(16 34) rotate(-45) scale(41)" >
+                      <stop stop-color="#6cc4f7"/>
+                      <stop offset="0.75" stop-color="#36aeea"/>
+                      <stop offset="1" stop-color="#1c90e6"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+                Telegram
+            </span>
+            — Қазақстандағы мессенджер тренді
+        </h1>
+        <p>
+            Telegram — шифрланған және қауіпсіз байланыс ұсынатын, заманауи қауымдастықтар мен арналардың өзіндік орталығы. Қазақстанда Telegram жастардан бастап мемлекеттік ұйымдарға дейін өте танымал платформаға айналды. Бұл мессенджер хабарламалармен алмасудан бөлек, ашық пікірталастар мен маңызды ақпарат таратудың негізгі құралы болып отыр.
+        </p>
+    </section>
+    <section class="section">
+        <div class="section-title">Telegram-ның Қазақстандағы танымалдылығы</div>
+        <ul class="stat-list">
+            <li>
+                2024 жылы Қазақстанда <span class="highlight">6,9 миллионнан астам</span> Telegram қолданушысы бар (<span class="highlight">халықтың ≈ 35%-ы</span>).
+            </li>
+            <li>
+                Telegram — елдегі <span class="highlight">ең жылдам өсетін мессенджердің</span> бірі. Қолданушылар күніне орта есеппен <span class="highlight">1 сағаттан аса</span> уақыт өткізеді.
+            </li>
+            <li>
+                <span class="highlight">18–39 жас аралығы</span> — Telegram-дағы ең белсенді аудитория (жастар, студенттер, IT мамандар, билік органдары мен кәсіпкерлер).
+            </li>
+            <li>
+                Қазақстандағы <span class="highlight">ресми мемлекеттік арналар, жаңалықтар медиа, стартап, SMM, білім, қоғам белсенділері</span> Telegram-да үздіксіз ақпарат таратады.
+            </li>
+            <li>
+                <span class="highlight">100 000-нан астам</span> ашық және жеке қазақ және орыс тілді арналар мен чаттар жұмыс істейді.
+            </li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Telegram арқылы не үйренуге және талқылауға болады?</h3>
+                <p>
+                    • Жаңалықтар, саясат, технология және мәдениет бойынша жедел ақпарат және талдау.<br>
+                    • Қазақ тілді арналар арқылы ұлттық құндылықтарды насихаттау.<br>
+                    • Сала мамандарының (IT, білім, кәсіпкерлік) тәжірибесімен алмасу.<br>
+                    • Ойын-сауық, әзіл, комикс, музыка мен подкаст контенттері.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Telegram бизнес және қауымдастық құралы ретінде</h3>
+                <p>
+                    • Кәсіпкерлер мен стартаптар үшін тегін жарнама мен аудитория жинау алаңы.<br>
+                    • SMM, маркетинг және клиенттермен кері байланыс арналары.<br>
+                    • Мемлекеттік органдар халықпен ашық диалог жүргізеді.<br>
+                    • Онлайн-курстар, оқыту, мамандандырылған жабық чаттар.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Мессенджердің қоғам өміріне әсері</h3>
+                <p>
+                    • Жедел әрі сенімді ақпарат тарату.<br>
+                    • Ашық пікірталас және еркін сөз алаңы.<br>
+                    • Қоғамдық бастамалар, волонтерлік және қайырымдылық жобалардың жылдам таралуы.<br>
+                    • Цензурасыз жеке пікір білдіру.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">Telegram-ның қоғамға әсері: артықшылықтары мен сын-қатерлер</div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Артықшылықтары</h3>
+                <p>
+                    • Ақпарат алмасу мен коммуникациядағы еркіндік.<br>
+                    • Мемлекеттік, қоғамдық жаңалықтарды тез жеткізу мүмкіндігі.<br>
+                    • Қазақша контент пен балаларға арналған білімге қолжетімділік.<br>
+                    • Қауіпсіз, шифрланған хабарламалар.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Қауіптер және сын</h3>
+                <p>
+                    • Дезинформация, жалған хабарламалар мен алаяқтық арналар.<br>
+                    • Тәуелділік және тым көп уақыт жұмсау.<br>
+                    • Балалар контентіне бақылаудың қиындығы.<br>
+                    • Радикал пікірлер мен анонимділікке байланысты қауіптер.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">Факт &amp; Деректер — Telegram Қазақстанда</div>
+        <ul class="stat-list">
+            <li>2024: Қазақстандағы Telegram арқылы күніне <span class="highlight">200+ миллион</span> хабарлама алмасады.</li>
+            <li>Telegram қолданушыларының шамамен <span class="highlight">58%-ы ер</span>, <span class="highlight">42%-ы әйел</span>.</li>
+            <li>Telegram-дағы арналардың <span class="highlight">43%-дан астамы қазақ тілінде</span> ақпарат жариялайды.</li>
+            <li>Telegram арқылы қоғамдық қозғалыстар мен ресми мәлімдемелер жөнінде тұрғындар бірінші болып біледі.</li>
+            <li>2020-2024 жылдары Telegram-ға мемлекеттік ұйымдар мен білім беру секторлары белсенді өтті.</li>
+        </ul>
+        <table class="styled-table" style="margin-top:32px;">
+            <thead>
+                <tr>
+                    <th>Telegram арналарының негізгі санаттары</th>
+                    <th>Арналар үлесі (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Жаңалықтар және ақпарат</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Білім және оқу</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>IT, технология және стартаптар</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>Көңіл көтеру, мемдер, әзіл</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Бизнес және кәсіпкерлік</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Волонтерлік, қоғам және қайырымдылық</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Басқа</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="demography">
+            Дереккөз: <span class="highlight">datareportal.com</span>, <span class="highlight">tgstat.ru</span>, 2024
+        </div>
+    </section>
+    <footer style="text-align:center;margin:42px 0 19px 0;color:var(--text-secondary);font-size:.96em;">
+        © 2024 Telegram ықпалы | Дереккөздер: 
+        <a style="color:var(--accent);" href="https://datareportal.com/reports/digital-2024-kazakhstan" target="_blank" rel="noopener">datareportal.com</a>, 
+        <a style="color:var(--accent);" href="https://tgstat.ru/telegram-users/KZ" target="_blank" rel="noopener">tgstat.ru</a>
+    </footer>
+</body>
+</html>
