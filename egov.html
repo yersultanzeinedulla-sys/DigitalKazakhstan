@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>eGov.kz — Қазақстанның электрондық үкіметі</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        :root {
+            --main-bg: #f4faf7;
+            --accent: #187436; /* eGov жасыл */
+            --soft-accent: #23a951; /* Ашық жасыл */
+            --text-main: #184121;
+            --text-secondary: #277c39;
+            --border: #538f6a;
+            --section: #ffffff;
+            --egov-green: #187436;
+        }
+        html {
+            background: var(--main-bg);
+            color: var(--text-main);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f4faf7 60%, #d5f6e4 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyber-header {
+            padding: 54px 18px 36px 18px;
+            background: linear-gradient(90deg, #e7fef0 56%, #23a95116 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-header-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 25px;
+        }
+        .logo-svg {
+            width: 42px;
+            height: 42px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        .cyber-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 8px #23a95129);
+            animation: text-slide-in 1.5s cubic-bezier(.47,.97,.33,1.09);
+            background: linear-gradient(90deg, var(--accent) 0%, var(--soft-accent) 65%, #4ad066 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--accent);
+        }
+        .cyber-header p {
+            font-size: 1.13rem;
+            color: var(--text-secondary);
+            margin-top: 30px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            animation: fade-in-text 1.8s 0.2s backwards;
+            max-width: 880px;
+            display: inline-block;
+        }
+        @keyframes text-slide-in {
+          0% { opacity:0; filter: blur(13px) grayscale(1); transform: translateY(60px);}
+          100%{opacity:1; filter:none; transform: none;}
+        }
+        @keyframes fade-in-text {
+          0% {opacity: 0; filter: blur(7px);}
+          100% {opacity:1; filter: none;}
+        }
+        .section {
+            background: var(--section);
+            border-radius: 16px;
+            box-shadow: 0 3px 18px #18743621, 0 2px 10px #38e38c12;
+            margin: 32px auto;
+            max-width: 950px;
+            padding: 39px 29px 29px 34px;
+            position: relative;
+            transition: box-shadow 0.19s;
+            border-left: 7px solid var(--accent);
+            animation: fade-in-text 1.0s;
+        }
+        .section-title {
+            font-size: 1.7rem;
+            color: var(--accent);
+            margin-bottom: 13px;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+            filter: drop-shadow(0 2px 8px #18743618);
+            animation: stagger-fade 1.1s;
+        }
+        @keyframes stagger-fade {
+            from { opacity: 0; transform: translateX(-23px);}
+            to { opacity: 1; transform: none;}
+        }
+        .stat-list {
+            margin: 0 0 22px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-list li {
+            margin-bottom: 16px;
+            padding-left: 19px;
+            position: relative;
+            font-size: 1.12em;
+        }
+        .stat-list li:before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--soft-accent) 95%);
+            box-shadow: 0 0 11px var(--soft-accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 9px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
+            gap: 27px;
+            margin: 34px 0;
+        }
+        .info-box {
+            background: #eafaf1ee;
+            border-radius: 12px;
+            padding: 23px 15px 17px 20px;
+            box-shadow: 0 2px 10px #23a95116;
+            border-left: 4px solid var(--soft-accent);
+            transition: box-shadow 0.18s, border-left-color 0.28s;
+            animation: fade-in-text 1.2s;
+        }
+        .info-box:hover {
+            box-shadow: 0 0 22px #23a95135, 0 1.5px 8px #38e38c1b;
+            border-left-color: var(--accent);
+            transform: translateY(-3px) scale(1.01);
+        }
+        .info-box h3 {
+            font-size: 1.14rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: .6px;
+        }
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0 8px 0;
+            background: #f1fcf6ea;
+            border-radius: 11px;
+            overflow: hidden;
+            box-shadow: 0 1.5px 10px #23a95114;
+            font-size: 1.05em;
+        }
+        .styled-table th, .styled-table td {
+            padding: 12px 14px;
+            text-align: left;
+        }
+        .styled-table th {
+            background: linear-gradient(92deg, #38e37e 12%, #187436 94%);
+            color: #fff;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+        }
+        .styled-table tr {
+            transition: background 0.12s;
+        }
+        .styled-table tr:hover {
+            background: #e3fbe6;
+        }
+        .styled-table td {
+            color: var(--text-main);
+            border-bottom: 1px solid #bdddcf78;
+        }
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #23ca621b;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 8px #23a95111;
+        }
+        .highlight {
+            color: var(--soft-accent);
+            font-weight: 600;
+        }
+        .demography {
+            color: var(--text-secondary);
+            font-size: 0.98em;
+            margin-top: 4px;
+            margin-left: 31px;
+        }
+        @media (max-width: 950px) {
+            .section { padding: 24px 4vw 18px 4vw;}
+            .styled-table th, .styled-table td {padding:8px 5px;}
+        }
+        @media (max-width: 520px) {
+            .cyber-header h1 {font-size:1.18rem;}
+            .section-title {font-size:1.03rem;}
+            .section {padding:12vw 2vw;}
+            .logo-svg {width:31px;height:31px;}
+        }
+        .aos-animate { opacity: 1 !important; transform: none !important;}
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(29px);
+            transition: opacity 0.9s cubic-bezier(.23,.96,.51,1.04), transform 0.61s;
+        }
+    </style>
+    <!-- Chart.js will be loaded via CDN for charts -->
+</head>
+<body>
+    <section class="cyber-header">
+        <h1>
+            <span class="logo-pill">
+                
+                <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 297 210" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><defs><style>.fil0{fill:#454f56}.fil1{fill:#fff}.fil2,.fil3{fill:#454f56;fill-rule:nonzero}.fil3{fill:url(#id0)}</style><linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="196.307" y1="150" x2="196.307" y2="63.385"><stop offset="0" stop-color="#223E32"/><stop offset="1" stop-color="#00923F"/></linearGradient></defs><g id="_63384440"><path id="_63140272" class="fil0" d="M89.689 97.248c5.632 3.038 9.458 8.993 9.459 15.84 0 9.092-6.743 16.608-15.501 17.821l-.094.013-.095.014-.096.011-.094.011-.094.011-.095.011-.095.011-.093.008-.095.008-.095.009-.093.008-.095.007-.093.006-.093.006-.094.006-.093.005-.093.005-.094.003-.092.004-.093.003-.094.004-.093.002-.092.001-.093.002-.092.001-.093.001-.049.001-.045-.001-.092-.001-.092-.001-.093-.002-.093-.001-.092-.002-.092-.003-.093-.004-.092-.003-.093-.004-.091-.004-.092-.006-.092-.006-.091-.005-.092-.006-.092-.007-.091-.008-.091-.008-.092-.009-.091-.008-.091-.009-.091-.011-.091-.01-.09-.01-.091-.011-.09-.012-.09-.012-.091-.012-.09-.013-.09-.012-.09-.014-.091-.015-.089-.015-.09-.015-.089-.015-.089-.016-.09-.017-.089-.017-.089-.017-.09-.017-.089-.018-.089-.02-.089-.019-.09-.019-.089-.02-.089-.021-.088-.022-.089-.021-.089-.022-.088-.022-.089-.024-.089-.024-.088-.024-.088-.023-.089-.024-.088-.027-.089-.026-.087-.026-.088-.025-.089-.027-.087-.029-.087-.029-.088-.028-.087-.029-.087-.029-.088-.031-.086-.03-.088-.031-.087-.031-.087-.032-.086-.033-.087-.033-.086-.032-.086-.033-.087-.035-.086-.035-.086-.035-.086-.035-.086-.035-.086-.038-.086-.037-.086-.038-.086-.037-.086-.039-.086-.04-.085-.039-.086-.04-.085-.04-.085-.043-.086-.042-.085-.042-.086-.043-.085-.043-.085-.044-.084-.045-.086-.045-.084-.044-.084-.047-.085-.047-.084-.047-.083-.047-.085-.048-.083-.049-.084-.05-.085-.049-.083-.05-.083-.051-.083-.053-.083-.052-.083-.052-.083-.053-.083-.054-.083-.055-.083-.055-.083-.055-.083-.057-.083-.058-.083-.056-.082-.057-.083-.059-.082-.06-.082-.059-.082-.06-.082-.061-.081-.063-.083-.063-.081-.062-.082-.064-.081-.065-.081-.065-.081-.065-.081-.066-.08-.068-.08-.069-.081-.068-.08-.069-.079-.07-.08-.071-.08-.071-.081-.072-.079-.073-.079-.073-.079-.075-.08-.073-.079-.077-.079-.077-.079-.077-.078-.077-.079-.08-.079-.08-.078-.08-.079-.082-.078-.083-.077-.083-.078-.084-.077-.084-.077-.087-.077-.086-.077-.087-.076-.089-.077-.091-.076-.09-.076-.09-.076-.095-.075-.094-.076-.093-.075-.097-.075-.098-.075-.098-.075-.098-.074-.101-.075-.102-.074-.102-.074-.103-.073-.106-.074-.108-.073-.106-.073-.11-.072-.111-.073-.11-.072-.114-.072-.116-.072-.116-.071-.118-.071-.12-.071-.12-.071-.123-.07-.126-.07-.126-.069-.128-.07-.132-.069-.131-.069-.134-.069-.137-.068-.137-.067-.141-.067-.143-.066-.143-.066-.15-.066-.152-.066-.152-.064-.158-.065-.158-.063-.163-.063-.166-.063-.168-.062-.174-.061-.175-.06-.183-.059-.184-.059-.19-.059-.196-.056-.198-.056-.206-.056-.21-.053-.218-.052-.224-.051-.234-.049-.241-.048-.251-.045-.263-.044-.27-.041-.291-.038-.303-.035-.317-.031-.348-.025-.372-.02-.408-.011-.455-.003-.227.004-.292a17.96 17.96 0 0 1 1.026-5.719l.179-.483.168-.417.159-.37.153-.334.149-.31.144-.288.14-.266.139-.254.136-.241.133-.224.133-.219.13-.21.128-.198.128-.194.125-.183.125-.18.123-.171.123-.167.121-.161.122-.158.12-.152.119-.148.119-.145.118-.14.117-.139.117-.132.116-.13.116-.127.115-.123.114-.123.114-.117.114-.117.113-.114.112-.11.113-.11.113-.107.111-.103.112-.104.11-.099.11-.097.111-.099.109-.093.11-.093.11-.093.108-.089.108-.086.109-.088.108-.084.108-.083.107-.083.107-.08.106-.078.107-.078.106-.077.106-.073.106-.073.106-.073.105-.07.106-.07.105-.069.105-.068.105-.066.104-.065.104-.065.104-.063.103-.061.103-.062.104-.061.103-.057.102-.058.103-.057.103-.056.102-.054.103-.054.102-.054.102-.051.102-.051.102-.05.101-.051.102-.048.101-.047.101-.047.101-.048.101-.044.1-.044.101-.044.1-.043.1-.042.1-.04.1-.041.1-.041.099-.039.1-.038.099-.038.099-.038.1-.035.099-.035.099-.035.099-.035.099-.032.098-.032.099-.032.099-.032.098-.031.098-.028.098-.029.098-.029.098-.029.098-.026.097-.026.097-.027.098-.026.097-.025.096-.024.098-.023.096-.024.097-.023.097-.021.096-.021.097-.021.097-.022.096-.019.096-.018.097-.018.096-.019.096-.018.096-.016.096-.015.095-.016.097-.015.095-.015.096-.014.096-.013.094-.014.095-.013.096-.012.094-.011.094-.011.096-.011.094-.011.094-.008.094-.009.094-.008.095-.009.094-.008.093-.006.094-.006.094-.006.093-.006.093-.006.094-.003.093-.004.093-.003.093-.003.093-.003.093-.002.093-.002.093-.001.092-.001.074-.001h.019l.092.002.092.002.093.001.093.001.092.002.093.003.092.004.093.003.092.003.092.004.092.006.091.005.092.006.092.006.092.006.091.008.091.009.091.008.091.008.093.008.09.011.09.01.092.011.09.01.09.011.091.013.09.012.09.013.09.013.09.013.09.015.091.015.089.015.089.015.09.015.089.017.089.017.09.018.089.017.089.018.089.02.089.019.089.019.09.019.089.02.089.022.089.022.089.022.089.022.089.023.088.024.089.024.089.024.088.024.088.025.089.026.088.026.088.026.088.026.087.029.088.028.088.029.087.028.087.029.087.03.087.031.087.03.088.032.087.031.086.033.087.033.086.033.086.032.087.035.086.035.086.035.086.035.086.035.086.037.087.038.086.037.086.038.086.038.086.039.085.04.086.04.086.04.085.041.086.043.085.042.086.043.085.042.085.044.085.044.085.045.084.044z"/><path id="_63140200" class="fil1" d="M76.358 132.474c2.182-8.424-3.314-16.288-9.266-15.449 0 0 .671-4.02 5.082-5.354 4.413-1.333 5.906 1.398 5.906 1.398 0-.001-2.587-3.773-1.466-7.777 1.121-4.004 4.812-5.749 4.812-5.749l-.043-.025s3.666 1.799 4.727 5.819c1.064 4.023-1.575 7.758-1.575 7.758s1.534-2.712 5.923-1.315c4.391 1.397 5.006 5.425 5.006 5.425-6.608-1.523-12.129 6.759-9.487 15.313l-9.619-.046z"/><path id="_63140104" class="fil2" d="M52.502 109.08c-4.734 2.306-10.196 3.763-16.629 3.763-5.098 0-9.104-1.578-11.409-4.613-1.214-1.699-1.821-4.37-1.942-6.068 23.911.607 38.598-4.855 38.598-19.907 0-11.046-8.618-17.843-20.634-17.843-21.484 0-34.593 18.814-34.593 36.9 0 15.536 8.739 25.146 25.61 25.146 6.676 0 15.294-1.214 22.212-4.754l-1.214-12.623zm-7.768-26.947c0 5.583-6.797 7.404-20.514 7.283 1.214-5.462 5.948-12.259 14.08-12.259 4.006 0 6.433 2.063 6.433 4.976z"/><path id="_63140032" class="fil3" d="M227.854 65.258l21.606 59.354h18.449L290 65.258h-19.42l-7.647 27.553c-1.335 5.098-2.305 9.589-3.277 14.445h-.364c-.971-4.734-1.943-9.346-3.399-14.445l-8.011-27.553h-20.027zm-65.643 17.721c0-8.861.242-13.838.485-17.721h-16.021l-.607 7.162h-.243c-3.034-4.977-8.132-8.496-16.264-8.496-14.687 0-26.947 12.137-26.947 31.315 0 16.994 10.439 28.888 25.126 28.888 6.797 0 12.502-2.791 16.022-7.647h.243v3.763c0 11.066-6.675 15.678-15.415 15.678-7.04 0-13.472-2.306-17.235-4.491l-3.641 14.08c5.34 2.913 13.472 4.491 21.362 4.491 8.739 0 17.6-1.699 24.033-7.283 6.797-5.947 9.104-15.293 9.104-26.723V82.98zm-18.45 15.172c0 1.578-.121 3.52-.607 4.976-1.214 4.248-4.976 7.404-9.832 7.404-7.646 0-12.016-6.918-12.016-15.779 0-10.803 5.34-16.872 12.137-16.872 5.098 0 8.618 3.278 9.953 8.132a16.16 16.16 0 0 1 .364 3.399v8.739zm55.979-34.766c-19.178 0-31.802 12.259-31.802 31.558 0 19.178 13.352 30.607 30.709 30.607 15.901 0 31.316-9.973 31.316-31.7 0-17.964-12.138-30.466-30.223-30.466zm-.607 13.23c8.375 0 11.774 8.982 11.774 17.721 0 10.802-4.491 17.964-11.774 17.964-7.89 0-12.138-7.647-12.138-17.843 0-8.739 3.399-17.843 12.138-17.843z"/></g></svg>
+                eGov.kz
+            </span>
+            — Қазақстанның электрондық үкіметі
+        </h1>
+        <p>
+            <b>eGov.kz</b> — Қазақстан Республикасының мемлекеттік электрондық қызметтер порталы. Бұл платформа арқылы азаматтар мен ұйымдар мемлекеттік қызметтерді онлайн алуға, анықтамалар рәсімдеуге, төлемдер жүргізуге, өтініштер жіберуге мүмкіндік алады. eGov — қағаз құжат айналымын азайтып, үкімет пен халық арасындағы байланысты барынша ашық, ыңғайлы және жылдам етеді.<br><br>
+            <span style="font-size:.98em; color:var(--text-main)">
+                <b>2024 жылы eGov.kz:</b> 600+ мемлекеттік қызмет, 13М+ қолданушы, 400М+ қызмет көрсету/операция (2023), халықтың цифрлық сауатының қарқынды өсуіне жол ашты.
+            </span>
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">eGov.kz — негізгі артықшылықтары мен бағыттары</div>
+        <ul class="stat-list">
+            <li>Мемлекеттік қызметтерді <span class="highlight">24/7 режимінде</span> онлайн алу</li>
+            <li>Анықтамалар, рұқсат қағаздары және өтініштерді электронды түрде рәсімдеу</li>
+            <li>Жеке кабинет арқылы <span class="highlight">жеке статус, төлемдер, құжаттар</span> бақылау мүмкіндігі</li>
+            <li>Қағазбастылық пен уақыт шығынын азайту</li>
+            <li>Жемқорлық тәуекелдерін төмендету, барлық процесс <span class="highlight">ашықтықпен</span> жүзеге асады</li>
+            <li>Мобильді қосымшаны немесе <span class="highlight">egov QR / Digital ID</span> арқылы қызмет алу жеңілдігі</li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Қызмет түрлері:</h3>
+                <p>
+                    • Азаматтық хал-жағдай актілері, <br>
+                    • Жылжымайтын мүлікті тіркеу, <br>
+                    • Төлқұжат, ЖСН, жүргізу куәліктері алу, <br>
+                    • Әлеуметтік төлемдер, салық, айыппұл төлеу,<br>
+                    • Білім және медицина бағыттарындағы анықтамалар.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Инновациялар:</h3>
+                <p>
+                    • <span class="highlight">Цифрлық құжаттар</span> (мобильді қосымшада),<br>
+                    • Электрондық еңбек кітапшасы,<br>
+                    • <span class="highlight">OpenAPI</span> арқылы сервистерді интеграциялау,<br>
+                    • eGovMobile (мобильді платформа),<br>
+                    • Biometrics, QR, FaceID қолдану.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Қоғамдық әсер:</h3>
+                <p>
+                    • <span class="highlight">Азаматқа бағытталған</span> мемлекеттік қызмет,<br>
+                    • Аймақаралық және әлеуметтік теңдікті дамыту,<br>
+                    • Электрондық демократия, қоғамдық бақылау,<br>
+                    • Мемлекеттік аппараттың <span class="highlight">ашықтығы мен тиімділігі</span>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">eGov.kz — статистика және цифрлар</div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Қолданушылар (2023):</h3>
+                <p>
+                    • 13 125 000 тіркелген<br>
+                    • Орта есеппен айына <span class="highlight">3 млн+</span> белсенді қолданушы
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Қызметтер саны:</h3>
+                <p>
+                    • 600+ әртүрлі мемлекеттік қызмет және сервис<br>
+                    • Мобильді қосымшада — 250+ қызмет<br>
+                    • Жыл сайын 8% жаңа цифрлық сервис қосылады
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Операциялар (2023):</h3>
+                <p>
+                    • Жалпы саны <span class="highlight">430 000 000+</span> көрсетілген қызмет<br>
+                    • Ең танымал: анықтама алу, айыппұл төлеу, салық және әлеуметтік төлемдер
+                </p>
+            </div>
+        </div>
+
+        <div style="max-width:900px;margin:29px auto;">
+            <canvas id="usersChart" style="max-width:100%;"></canvas>
+        </div>
+        <div style="max-width:900px;margin:35px auto 3px auto;">
+            <canvas id="servicesChart" style="max-width:100%;"></canvas>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">eGov қолданушыларының құрылымы</div>
+        <ul class="stat-list">
+            <li><span class="highlight">41%</span> — 18-35 жас аралығы (жастар мен жас мамандар)</li>
+            <li><span class="highlight">38%</span> — 36-55 жас (жұмысқа қабілетті орта)</li>
+            <li><span class="highlight">21%</span> — 56 жас және одан жоғары</li>
+            <li>Гендерлік құрылым: <span class="highlight">53%</span> әйел, <span class="highlight">47%</span> ер адам</li>
+            <li>Аймақтық: <span class="highlight">Алматы және Астана</span> — ең белсенді аймақтар, басқа облыстарда да белсенділік өсуде</li>
+        </ul>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Қызмет түрі</th>
+                    <th>Орындалу саны (2023)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Азаматтық хал актілері</td>
+                    <td>78 000 000</td>
+                </tr>
+                <tr>
+                    <td>Салық төлемдері</td>
+                    <td>39 000 000</td>
+                </tr>
+                <tr>
+                    <td>Жылжымайтын мүлікті тіркеу</td>
+                    <td>21 000 000</td>
+                </tr>
+                <tr>
+                    <td>Әлеуметтік төлемдер</td>
+                    <td>31 000 000</td>
+                </tr>
+                <tr>
+                    <td>Білім беру анықтамалары</td>
+                    <td>13 000 000</td>
+                </tr>
+                <tr>
+                    <td>Айыппұл төлеу</td>
+                    <td>8 000 000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer style="text-align:center;margin:40px 0 20px 0;color:var(--text-secondary);font-size:.97em;">
+        © 2024 eGov.kz | <a style="color:var(--accent);" href="https://egov.kz/" target="_blank" rel="noopener">egov.kz</a>. Дереккөздер: ҚР ЦДИАӨМ, eGov Press Service, Digital Report Kazakhstan, Open Data Portal.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    // Қолданушылар өсімі (миллион)
+    const usersCtx = document.getElementById('usersChart').getContext('2d');
+    new Chart(usersCtx, {
+        type: 'line',
+        data: {
+            labels: ['2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Қолданушылар саны (млн)',
+                data: [7, 8.4, 9.2, 10.5, 11.8, 12.3, 13.1],
+                backgroundColor: 'rgba(35,169,81,0.09)',
+                borderColor: 'rgba(24,116,54,0.88)',
+                borderWidth: 3,
+                pointBackgroundColor: 'rgba(24,116,54,1)',
+                fill: true,
+                tension: 0.27
+            }]
+        },
+        options: {
+            plugins:{
+                legend: {display: true, labels: {color: "#187436", font: {weight:'bold'}}}
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {display:true, text:"Млн қолданушы", color: "#277c39"},
+                    ticks:{color:'#277c39'}
+                },
+                x: {ticks:{color:'#277c39'}}
+            }
+        }
+    });
+
+    // Қызметтер: әр жылдағы eGov арқылы көрсетілген мемлекеттік қызметтер сандық өсу диаграммасы (миллион)
+    const servicesCtx = document.getElementById('servicesChart').getContext('2d');
+    new Chart(servicesCtx, {
+        type: 'bar',
+        data: {
+            labels: ['2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+            datasets: [{
+                label: 'Көрсетілген қызметтер саны (млн)',
+                data: [70, 110, 160, 210, 260, 340, 430],
+                backgroundColor: 'rgba(35,169,81,0.65)',
+                borderColor: 'rgba(24,116,54,1)',
+                borderWidth: 1.5,
+                borderRadius: 6,
+            }]
+        },
+        options: {
+            plugins:{
+                legend: {display: false}
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {display:true, text:"Млн қызмет", color: "#277c39"},
+                    ticks:{color:'#277c39'}
+                },
+                x: {ticks:{color:'#277c39'}}
+            }
+        }
+    });
+    </script>
+</body>
+</html>
