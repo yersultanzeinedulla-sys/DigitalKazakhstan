@@ -59,6 +59,22 @@
             display: inline-block;
         }
 
+        /* Centered video styling */
+        .center-video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 32px 0 0 0;
+        }
+        .center-video-container video {
+            max-width: 95vw;
+            max-height: 460px;
+            border-radius: 17px;
+            box-shadow: 0 4px 22px #15384b44, 0 1.5px 7px #091a27a8;
+            background: #111a23;
+            border: 2.5px solid var(--accent);
+        }
+
         @keyframes text-slide-in {
           0% { opacity:0; filter: blur(12px) grayscale(1); transform: translateY(60px);}
           50% { opacity:0.3;}
@@ -224,11 +240,13 @@
         @media (max-width: 950px) {
             .section { padding: 30px 7vw 24px 5vw;}
             .styled-table th, .styled-table td {padding:8px 7px;}
+            .center-video-container video {max-height: 35vw;}
         }
         @media (max-width: 520px) {
             .cyber-header h1 {font-size:1.35rem;}
             .section-title {font-size:1.11rem;}
             .section {padding:14vw 3vw;}
+            .center-video-container video {max-width: 100%;}
         }
 
         /* Scroll animations */
@@ -275,18 +293,24 @@
             Қазіргі заманда цифрландыру экономикалық және әлеуметтік дамудың кілтіне айналды. Қазақстан <span class="highlight">«Цифрлық Қазақстан»</span> бағдарламасы аясында ауқымды жобаларды іске асырады, бұл қоғамның барлық саласын – электрондық үкімет пен ЖИ-ден бастап, цифрлық инфрақұрылым мен азаматтардың әдеттеріне дейін қамтиды.
         </p>
     </header>
-
     <div class="slider">
-    <div class="slides">
-        <img src="картинка11.png" alt="a">
-        <img src="картинка2.jpg" alt="b">
-        <img src="3.jpg" alt="c">
-
-        <img src="картинка11.png" alt="a">
-        <img src="картинка2.jpg" alt="b">
-        <img src="3.jpg" alt="c">
+        <div class="slides">
+            <img src="картинка11.png" alt="a">
+            <img src="картинка2.jpg" alt="b">
+            <img src="3.jpg" alt="c">
+    
+            <img src="картинка11.png" alt="a">
+            <img src="картинка2.jpg" alt="b">
+            <img src="3.jpg" alt="c">
+        </div>
     </div>
-</div>
+
+    <div class="center-video-container">
+        <video controls poster="vid.jpg">
+            <source src="vid.mp4" type="video/mp4">
+            Сіздің шолғышыңыз бейне тегін қолдамайды.
+        </video>
+    </div>
 
     <main>
         <!-- 1. Бөлім: Қазақстандағы цифрлық технологиялардың жағдайы -->
@@ -562,6 +586,7 @@
     </script>
 </body>
 </html>
+
 
 
 
