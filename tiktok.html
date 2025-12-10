@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTok — Қазақстандағы ықпал мен тренд</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        :root {
+            --main-bg: #1a2433;
+            --accent: #34c1e0;
+            --soft-accent: #b6e0ed;
+            --text-main: #e0f0fa;
+            --text-secondary: #aabbd1;
+            --border: #34536a;
+            --section: #223046;
+        }
+        html {
+            background: var(--main-bg);
+            color: var(--text-main);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #1a2433 70%, #222e45 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyber-header {
+            padding: 56px 15px 38px 15px;
+            background: linear-gradient(90deg, #212e43 70%, #294966 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-header h1 {
+            font-size: 2.62rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2.2px;
+            margin: 0;
+            filter: drop-shadow(0 0 11px #15384bc5);
+            animation: text-slide-in 1.7s cubic-bezier(.47,.97,.33,1.09);
+            background: linear-gradient(90deg, var(--accent) 60%, var(--soft-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cyber-header p {
+            font-size: 1.14rem;
+            color: var(--text-secondary);
+            margin-top: 31px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            animation: fade-in-text 2s 0.4s backwards;
+            max-width: 900px;
+            display: inline-block;
+        }
+        @keyframes text-slide-in {
+          0% { opacity:0; filter: blur(12px) grayscale(1); transform: translateY(60px);}
+          50% { opacity:0.3;}
+          100%{opacity:1; filter:none; transform: none;}
+        }
+        @keyframes fade-in-text {
+          0% {opacity: 0; filter: blur(7px);}
+          100% {opacity:1; filter: none;}
+        }
+        .section {
+            background: var(--section);
+            border-radius: 19px;
+            box-shadow: 0 4px 24px #17253680, 0 1.5px 7px #091a27a8;
+            margin: 34px auto 34px auto;
+            max-width: 1100px;
+            padding: 42px 36px 36px 36px;
+            position: relative;
+            transition: box-shadow 0.21s;
+            border-left: 7px solid var(--accent);
+            animation: fade-in-text 1.25s;
+        }
+        .section-title {
+            font-size: 2.04rem;
+            color: var(--accent);
+            margin-bottom: 14px;
+            font-weight: bold;
+            letter-spacing: 1.7px;
+            filter: drop-shadow(0 2px 8px #29cfe944);
+            animation: stagger-fade 1.3s;
+        }
+        @keyframes stagger-fade {
+            from { opacity: 0; transform: translateX(-25px);}
+            to { opacity: 1; transform: none;}
+        }
+        .stat-list {
+            margin: 0 0 28px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-list li {
+            margin-bottom: 18px;
+            padding-left: 21px;
+            position: relative;
+            font-size: 1.09em;
+        }
+        .stat-list li:before {
+            content: '';
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: linear-gradient(90deg, var(--accent), #38d0bb 95%);
+            box-shadow: 0 0 12px var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(270px,1fr));
+            gap: 28px;
+            margin: 35px 0;
+        }
+        .info-box {
+            background: #223046bd;
+            border-radius: 14px;
+            padding: 24px 20px 18px 24px;
+            box-shadow: 0 1.5px 8px #1ca7ce24;
+            border-left: 4px solid var(--soft-accent);
+            transition: box-shadow 0.21s, border-left-color 0.35s;
+            animation: fade-in-text 1.3s;
+        }
+        .info-box:hover {
+            box-shadow: 0 0 25px #49cfee33, 0 1.5px 8px #1ca7ce42;
+            border-left-color: var(--accent);
+            transform: translateY(-4px) scale(1.01);
+        }
+        .info-box h3 {
+            font-size: 1.18rem;
+            color: var(--accent);
+            margin-bottom: 9px;
+            font-weight: 600;
+            letter-spacing: .7px;
+        }
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0 5px 0;
+            background: #202c41e3;
+            border-radius: 11px;
+            overflow: hidden;
+            box-shadow: 0 2px 13px #215b9e19;
+            font-size: 1.07em;
+        }
+        .styled-table th, .styled-table td {
+            padding: 11px 19px;
+            text-align: left;
+        }
+        .styled-table th {
+            background: linear-gradient(93deg, #2cbef6 20%, #4bbbdc 93%);
+            color: #153145;
+            font-weight: 700;
+            border-bottom: 2.3px solid var(--accent);
+        }
+        .styled-table tr {
+            transition: background 0.15s;
+        }
+        .styled-table tr:hover {
+            background: #1e3145;
+        }
+        .styled-table td {
+            color: var(--text-main);
+            border-bottom: 1px solid #25395a76;
+        }
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #202f4217;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 7px #1ca7ce12;
+        }
+        .logo-svg {
+            width: 26px;
+            height: 26px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .demography {
+            color: var(--text-secondary);
+            font-size: 0.97em;
+            margin-top: 3px;
+            margin-left: 31px;
+        }
+        @media (max-width: 950px) {
+            .section { padding: 30px 7vw 24px 5vw;}
+            .styled-table th, .styled-table td {padding:8px 7px;}
+        }
+        @media (max-width: 520px) {
+            .cyber-header h1 {font-size:1.21rem;}
+            .section-title {font-size:1.04rem;}
+            .section {padding:14vw 3vw;}
+        }
+        .aos-animate {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.98s cubic-bezier(.23,.96,.51,1.04), transform 0.69s;
+        }
+    </style>
+</head>
+<body>
+    <section class="cyber-header">
+        <h1>TikTok — Қазақстандағы тренд және ықпал</h1>
+        <p>
+            TikTok – қысқа видеоларды жариялап, креативті контент жасауға мүмкіндік беретін әлемдік әлеуметтік желі. Қазақстанда TikTok жастар мен жасөспірімдер арасында өте танымал болып, мәдениет, бизнес, ҚОҒАМ және білімде жаңа трендтер туындатуда. Бұл платформа заманауи коммуникация мен өзін-өзі көрсету құралына айналды.
+        </p>
+    </section>
+    <section class="section">
+        <div class="section-title">TikTok-тың Қазақстандағы танымалдығы</div>
+        <ul class="stat-list">
+            <li>2024 жылы Қазақстанда <span class="highlight">6,8 млн+</span> белсенді TikTok қолданушысы бар (<span class="highlight">халықтың 30%-ы</span> жуығы).</li>
+            <li>TikTok еліміздегі <span class="highlight">№1 бейневидео-платформа</span> мәртебесіне жақындады: орташа алғанда қолданушы <span class="highlight">күніне 1 сағаттан астам</span> уақыт өткізеді.</li>
+            <li><span class="highlight">14–35 жас аралығы</span> – ең белсенді аудитория (оқушылар, студенттер, жас кәсіпкерлер, инфлюенсерлер).</li>
+            <li>TikTok арқылы <span class="highlight">қазақстандық контент</span> пен мемлекеттік тілді жылжыту жүріп жатыр; креатив видеолар, челлендждер және трендтер ұлттық сипатқа ие болуда.</li>
+            <li>Тұрмыстық лайфхактар мен білім беретін видеолар <span class="highlight">миллиондаған қаралым жинайды</span>.</li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Контент трендтері</h3>
+                <p>
+                    • Қазақстандық TikTok-та әнұран, ұлттық тағам, дәстүр, әзіл-жаңалық контенттері кең танымал.<br>
+                    • <span class="highlight">#oqyQT</span>, <span class="highlight">#bilimtime</span> және басқа білім хэштегтері кең тараған.<br>
+                    • Кәсіпкерлер мен шағын бизнестің жарнамалық видеолары да белсенді жарияланады.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Бизнес және жаңа жұмыс орындары</h3>
+                <p>
+                    • TikTok платформасында инфлюенсерлер мен SMM-мамандар, видеографтар үшін жаңа нарық пайда болды.<br>
+                    • Брендтер <span class="highlight">TikTok арқылы өнімдерін жарнамалайды</span> және аудиториямен байланыс орнатады.<br>
+                    • Кейбір қолданушылар <span class="highlight">миллиондаған жазылушымен</span> табыс тауып отыр.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Қоғамға әсері</h3>
+                <p>
+                    • TikTok арқылы әлеуметтік мәселелер шумағы (экология, буллинг, құқықтық сауаттылық, денсаулық) кеңінен талқыланады.<br>
+                    • Волонтерлік бастамалар мен қайырымдылық жобалар TikTok-тың арқасында жаппай қолдауға ие.<br>
+                    • Мемлекеттік органдар мен БАҚ тар жаңа форматтағы байланыс үшін TikTok-ты пайдаланады.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">TikTok-тың қоғамға ықпалы: пайдалар мен тәуекелдер</div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Пайдалы жақтары</h3>
+                <p>
+                    • Көрермендердің шығармашылығын дамытады.<br>
+                    • Мемлекеттік тіл, ұлттық-мәдени құндылықтарды таратуға жол ашады.<br>
+                    • Білім, құқықтық сауаттылық, денсаулық бойынша пайдалы ақпарат жылдам таралады.<br>
+                    • Бизнес пен жеке брендті жылжыту мүмкіндігі.
+                </p>
+            </div>
+            <div class="info-box">
+                <h3>Тәуекелдер мен сын</h3>
+                <p>
+                    • Уақытты көп жұмсау, "цифрлық тәуелділік" қауіпі.<br>
+                    • Жалған немесе күмәнді ақпарат таралуы, кибербуллинг.<br>
+                    • Жасөспірімдердің психологиялық денсаулығына әсер етіп, трендтердің теріс ықпалы болуы мүмкін.<br>
+                    • Ұлттық құндылықтарды бұрмалап көрсету қаупі мен вульгарлық контенттің жайылуы.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="section-title">TikTok фактілері – Қазақстанда</div>
+        <ul class="stat-list">
+            <li>2024: TikTok-та <span class="highlight">қазақстандықтар жасаған видеолар 2 млрд-тан астам қаралым жинады</span>.</li>
+            <li>Тіл саясаты: видеолардың шамамен <span class="highlight">47%-ы қазақ тілінде</span> түсіріледі, бұл ұлттық контенттің тез өсуіне жол ашты.</li>
+            <li>TikTok контент-мейкерлері қазақстандық интернет мәдениетіне айтарлықтай ықпал етуде — ұлттық әзіл, тренд пен челлендждер дүниеге келеді.</li>
+            <li>Мемлекеттік ұйымдар, университеттер мен медиа TikTok-та ресми аккаунттар ашып, жастар аудиториясын баурауда.</li>
+        </ul>
+    </section>
+    <footer style="text-align:center;margin:42px 0 19px 0;color:var(--text-secondary);font-size:.96em;">
+        © 2024 TikTok беделі | Дереккөздер: <a style="color:var(--accent);" href="https://datareportal.com/reports/digital-2024-kazakhstan" target="_blank" rel="noopener">datareportal.com</a>
+    </footer>
+</body>
+</html>
