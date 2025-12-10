@@ -260,6 +260,11 @@
   width: calc(100% / 6); /* подстрой: 6 изображений всего */
   object-fit: cover;
 }
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* смещение ровно на половину (т.е. 3 картинки) */
+}
     </style>
 </head>
 <body>
@@ -557,6 +562,7 @@
     </script>
 </body>
 </html>
+
 
 
 
