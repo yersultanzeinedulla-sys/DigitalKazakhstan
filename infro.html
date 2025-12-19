@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Цифрлық инфрақұрылым KZ — Қазақстанның цифрлық жабдықталуы</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        :root {
+            --main-bg: #f4faf7;
+            --accent: #198C4E;
+            --soft-accent: #36cc7d;
+            --text-main: #184121;
+            --text-secondary: #277c39;
+            --border: #70af8a;
+            --section: #ffffff;
+            --infra-green: #198C4E;
+        }
+        html {
+            background: var(--main-bg);
+            color: var(--text-main);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f4faf7 60%, #ccf7df 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyber-header {
+            padding: 54px 18px 36px 18px;
+            background: linear-gradient(90deg, #eefcee 62%, #36cc7d13 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-header-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 25px;
+        }
+        .logo-svg {
+            width: 42px;
+            height: 42px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        .cyber-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 8px #198C4E27);
+            animation: text-slide-in 1.5s cubic-bezier(.47,.97,.33,1.09);
+            background: linear-gradient(90deg, var(--accent) 0%, var(--soft-accent) 80%, #a5f7c9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .cyber-header p {
+            font-size: 1.13rem;
+            color: var(--text-secondary);
+            margin-top: 30px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            animation: fade-in-text 1.8s 0.2s backwards;
+            max-width: 900px;
+            display: inline-block;
+        }
+        @keyframes text-slide-in {
+          0% { opacity:0; filter: blur(13px) grayscale(1); transform: translateY(60px);}
+          100%{opacity:1; filter:none; transform: none;}
+        }
+        @keyframes fade-in-text {
+          0% {opacity: 0; filter: blur(7px);}
+          100% {opacity:1; filter: none;}
+        }
+        .section {
+            background: var(--section);
+            border-radius: 16px;
+            box-shadow: 0 3px 18px #36cc7d24, 0 2px 10px #36cc7d13;
+            margin: 32px auto;
+            max-width: 950px;
+            padding: 39px 29px 29px 34px;
+            position: relative;
+            transition: box-shadow 0.19s;
+            border-left: 7px solid var(--accent);
+            animation: fade-in-text 1.0s;
+        }
+        .section-title {
+            font-size: 1.7rem;
+            color: var(--accent);
+            margin-bottom: 13px;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+            filter: drop-shadow(0 2px 8px #198C4E23);
+            animation: stagger-fade 1.1s;
+        }
+        @keyframes stagger-fade {
+            from { opacity: 0; transform: translateX(-23px);}
+            to { opacity: 1; transform: none;}
+        }
+        .stat-list {
+            margin: 0 0 22px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-list li {
+            margin-bottom: 16px;
+            padding-left: 19px;
+            position: relative;
+            font-size: 1.12em;
+        }
+        .stat-list li:before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--soft-accent) 95%);
+            box-shadow: 0 0 11px var(--soft-accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 9px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
+            gap: 27px;
+            margin: 34px 0;
+        }
+        .info-box {
+            background: #eafbf3f4;
+            border-radius: 12px;
+            padding: 23px 15px 17px 20px;
+            box-shadow: 0 2px 10px #36cc7d19;
+            border-left: 4px solid var(--soft-accent);
+            transition: box-shadow 0.18s, border-left-color 0.28s;
+            animation: fade-in-text 1.2s;
+        }
+        .info-box:hover {
+            box-shadow: 0 0 22px #36cc7d39, 0 1.5px 8px #a5f7c91b;
+            border-left-color: var(--accent);
+            transform: translateY(-3px) scale(1.01);
+        }
+        .info-box h3 {
+            font-size: 1.14rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: .6px;
+        }
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0 8px 0;
+            background: #f3fefaea;
+            border-radius: 11px;
+            overflow: hidden;
+            box-shadow: 0 1.5px 10px #36cc7d14;
+            font-size: 1.05em;
+        }
+        .styled-table th, .styled-table td {
+            padding: 12px 14px;
+            text-align: left;
+        }
+        .styled-table th {
+            background: linear-gradient(92deg, #36cc7d 12%, #198C4E 94%);
+            color: #fff;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+        }
+        .styled-table tr {
+            transition: background 0.12s;
+        }
+        .styled-table tr:hover {
+            background: #e7f9ee;
+        }
+        .styled-table td {
+            color: var(--text-main);
+            border-bottom: 1px solid #b8e9cd78;
+        }
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #36cc7d1b;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 8px #36cc7d11;
+        }
+        .highlight {
+            color: var(--soft-accent);
+            font-weight: bold;
+        }
+        a {
+            color: var(--soft-accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .site-header {
+            width: 100%;
+            background: linear-gradient(90deg, #198C4E 67%, #36cc7d 100%);
+            box-shadow: 0 2px 10px #198C4E26;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 42px;
+            height: 70px;
+            position: relative;
+            z-index: 10;
+        }
+        .site-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .site-title {
+            font-size: 1.36rem;
+            font-weight: 700;
+            color: #fff;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            margin: 0;
+            text-decoration: none;
+            transition: text-shadow 0.12s;
+            display: block;
+            letter-spacing: 2px;
+            padding-right: 32px;
+        }
+        .site-title:hover {
+            text-shadow: 0 1px 14px #36cc7d40;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin-left: auto;
+        }
+        .nav-btn {
+            border: 2px solid #ffffffcc;
+            background: #ffffff;
+            color: var(--accent);
+            padding: 8px 20px;
+            font-size: 1em;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2.5px 10px #23a95110, 0 0 0 2px #23a95133;
+            outline: none;
+            text-decoration: none;
+            transition: background 0.18s, color 0.18s, box-shadow 0.13s, transform 0.11s;
+            position: relative;
+        }
+        .nav-btn:hover, .nav-btn:focus {
+            background: var(--soft-accent);
+            color: #ffffff;
+            box-shadow: 0 4px 16px #198C4E33;
+            transform: translateY(-2px) scale(1.04);
+        }
+        @media (max-width: 1200px) {
+            .site-header-inner {
+                max-width: 1000px;
+            }
+        }
+        @media (max-width: 990px) {
+            .site-header-inner {
+                max-width: 95vw;
+            }
+        }
+        @media (max-width: 700px) {
+            .site-header {padding: 0 8vw; height: auto;}
+            .site-header-inner {flex-direction: column; align-items: flex-start; gap: 7px; max-width: 100%;}
+            .site-title {font-size:1rem;padding-right:0;}
+            .nav-btn {padding:7px 11px;font-size:0.97em;}
+            .nav-buttons {gap: 12px; margin-left: 0; margin-top: 7px;}
+        }
+        @media (max-width: 520px) {
+            .site-header {padding: 9px 3vw;}
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html" class="site-title">Цифрлық Қазақстан 2026</a>
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-btn">Басты бет</a>
+                <a href="ai_innovation.html" class="nav-btn">Жасанды интеллект</a>
+                <a href="infro.html" class="nav-btn">Инфрақұрылым</a>
+                <a href="egov.html" class="nav-btn">eGov</a>
+            </div>
+        </div>
+    </nav>
+    <section class="cyber-header">
+        <h1>Қазақстанның цифрлық инфрақұрылымы және жабдықталуы</h1>
+        
+    </section>
+
+    <section class="section">
+        <div class="section-title">Қазақстандағы цифрлық инфрақұрылымның негізгі бағыттары</div>
+        <ul class="stat-list">
+            <li>Желілік инфрақұрылымды дамыту: оптикалық‑талшықты байланыс және 5G желілері қала мен аймақта кеңінен енгізілуде; 20 қалада 1 000+ 5G базалық станциясы орнатылды, 5G енгізу 2025 жылға дейін аяқталуы жоспарланған</li>
+            <li>Ұлттық деңгейде ұлттық суперкомпьютер мен облак инфрақұрылым (alem.cloud және басқа дата‑орталықтар) іске қосылды, бұл ЖИ жобалары мен деректер өңдеуді қолдайды </li>
+            <li>Интернетке қосылу кеңеюде: 1 200+ ауылдық елді мекен интернетпен қамтамасыз етілді, 3 700+ мемлекеттік мекеме кең жолақты интернетке қосылды </li>
+            <li>Спутниктік интернет және байланыс жобалары арқылы алшақ аудандарда интернет қолжетімділігі артуда, соның ішінде Starlink секілді сервистер іске қосылды </li>
+            <li>«Цифрлық Қазақстан» және Smart City бастамалары аясында IoT, Big Data, бейне‑талдау және GovTech шешімдері енгізілуде; цифрлық қызметтер саны мен сапасы артуда</li>
+        </ul>
+        
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Интернетке қолжетімділік</h3>
+<p>
+    • Қазақстанның барлық облысында жоғары жылдамдықты интернетке қолжетімділік қамтамасыз етілуде<br>
+    • «Оптика ауылға» жобасы — 1 200+ ауылдық елді мекенге оптикалық желі тартылды<br>
+    • 5G пилоттық желісі 2024 жылы 13 қалада іске қосылды; 2025 жылға дейін еліміздің 20 қаласында 5G енгізілуі жоспарланған
+</p>
+
+            </div>
+            <div class="info-box">
+                <h3>Дата-орталықтар және бұлтты қызметтер</h3>
+                <p>
+                    • Қазақстанда бірнеше ірі дата-орталықтар жұмыс істейді, олар мемлекеттік және жеке сектор үшін деректерді өңдеу инфрақұрылымын қамтамасыз етеді.<br>
+                    • Отандық бұлтты платформалар арқылы мемлекеттік қызметтер автоматтандырылып, ақпараттық жүйелерді біріктіру жүзеге асырылады.<br>
+                    •  Жасанды интеллект жобалары мен деректерді сақтау үшін арнайы қауіпсіз инфрақұрылымдар қолданылуда, соның ішінде үкіметтік деректерді өңдеу мен аналитикаға арналған шешімдер бар.
+                </p>
+                
+            </div>
+            <div class="info-box">
+                <h3>Сандық жабдықтар және қауіпсіздік</h3>
+<p>
+    • Қазақстандағы білім беру ұйымдарының басым бөлігі интернетке қосылған: 7 098 мектептің 7 078‑і желіге қолжетімді, олардың бір бөлігі IT‑қауіпсіздік талаптарына сай келеді. <br> 
+    • Қауіпсіздік жүйелері ретінде бейнебақылау білім беру мекемелерінде, қоғамдық орындарда және көше инфрақұрылымында кеңінен қолданылады.  <br>
+    • Алматы, Астана және басқа қалаларда ЖИ‑негізіндегі бейнеаналитика жүйелері орнатылып, қоғамдық қауіпсіздік пен көлік мониторингі сияқты салаларда пайдаланылады.
+</p>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">Ірі инфрақұрылымдық жобалар мен нәтижелер</div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>«Цифрлық Қазақстан» бағдарламасы</h3>
+<p>
+    • Қазақстандық ауылдық және қалалық елді мекендер жоғары жылдамдықты интернетпен қамтылды<br>
+    • Оптикалық талшықты желілер мен мобильді байланыс (4G/5G) кеңейтілуде<br>
+    • Smart City және IoT технологиялары қалалар мен инфрақұрылымда енгізілуде
+</p>
+
+            </div>
+            <div class="info-box">
+                <h3>Smart City жобалары</h3>
+                <p>
+                    • Қалаларда адам қауіпсіздігі, көлік және коммуналдық қызметтер автоматтандырылуда<br>
+                    • Жасанды интеллектке негізделген бейнебақылау және деректер аналитикасы қолданылады<br>
+                    • Қалалық қызметтер цифрландырылып, онлайн сервистер дамытылуда
+                </p>
+                
+            </div>
+            <div class="info-box">
+                <h3>Kazsat & байланыс серіктері</h3>
+<p>
+    • KazSat‑3 — Қазақстанның байланыс және хабар тарату спутнигі, ол телехабар, интернет және деректерді тарату қызметтерін көрсетеді<br>
+    • Қазіргі уақытта KazSat жүйесі KazSat‑2 және KazSat‑3 екі спутниктен тұрады және олар Қазақстан мен көрші аймақтарды қамтиды<br>
+    • Елде KazSat ғарыштық байланыс жүйесін нығайту жұмыстары жүргізілуде, оның аясында жаңа буын спутнигін әзірлеу жоспарлануда
+</p>
+
+            </div>
+        </div>
+        <div style="max-width:900px;margin:29px auto;">
+            <canvas id="infraChart" style="max-width:100%;"></canvas>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">Инфрақұрылымдық көрсеткіштер және инновациялық шешімдер</div>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Жоба/Көрсеткіш</th>
+                    <th>Сипаттама</th>
+                    <th>Нәтиже</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Жоғары жылдамдықты интернет</td>
+                    <td>100% халықты интернетпен қамтуға бағытталған «Қолжетімді интернет» ұлттық жобасы</td>
+                    <td>2027 жылға дейін барлық тұрғындар интернетпен қамтылады; 90% ауылдар оптикалық кабельге қосылады</td>
+                </tr>
+                <tr>
+                    <td>Оптикалық талшықты желілер</td>
+                    <td>Ауылдық елді мекендерді оптикалық талшықты желіге қосу</td>
+                    <td>2600+ ауыл магистральдық талшыққа қосылған, қосымша 3000+ ауыл қосылуда</td>
+                </tr>
+                <tr>
+                    <td>5G инфрақұрылым</td>
+                    <td>5G мобильді байланыс желілерін ірі қалаларда енгізу</td>
+                    <td>20‑дан астам қалада 5G желісі енгізілді, ары қарай кеңейту жоспарланған</td>
+                </tr>
+                <tr>
+                    <td>Спутниктік интернет</td>
+                    <td>Алшаң ауылдарда қосымша спутниктік байланыс арқылы интернет</td>
+                    <td>504 шалғай елді мекенге спутниктік интернет қосу жоспарлануда</td>
+                </tr>
+                <tr>
+                    <td>Бейнеаналитика және Smart City</td>
+                    <td>Қалаларда қауіпсіздік пен инфрақұрылымды басқару үшін цифрлық жүйелер</td>
+                    <td>Бейнебақылау және IoT шешімдері қоғамдық инфрақұрылымда қолданылады</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+
+    <footer style="text-align:center;margin:40px 0 20px 0;color:var(--text-secondary);font-size:.97em;">
+        © 2024 Digital Infra KZ | Дереккөздер: ҚР ЦДИАӨМ, open data порталы, Kazsat, Alem.cloud
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    // Инфрақұрылымдық негізгі көрсеткіштер (2020-2024)
+    const infraCtx = document.getElementById('infraChart').getContext('2d');
+    new Chart(infraCtx, {
+        type: 'line',
+        data: {
+            labels: ['2020', '2021', '2022', '2023', '2024'],
+            datasets: [
+                {
+                    label: 'Оптикалық желі (мың км)',
+                    data: [85, 86, 87, 87, 87.3],
+                    backgroundColor: 'rgba(25,140,78,0.11)',
+                    borderColor: 'rgba(25,140,78,0.9)',
+                    borderWidth: 3,
+                    pointBackgroundColor: 'rgba(25,140,78,1)',
+                    fill: true,
+                    tension: 0.22
+                },
+                {
+                    label: 'Интернетпен қамту (%)',
+                    data: [85.9, 90.9, 92.3, 92.9, 93.4],
+                    backgroundColor: 'rgba(54,204,125,0.12)',
+                    borderColor: 'rgba(54,204,125,0.93)',
+                    borderWidth: 3,
+                    pointBackgroundColor: 'rgba(54,204,125,1)',
+                    fill: true,
+                    tension: 0.18,
+                    yAxisID: 'y1'
+                }
+            ]
+        },
+        options: {
+            plugins:{
+                legend: {
+                    display: true,
+                    labels: {
+                        color: "#198C4E",
+                        font: {weight:'bold'}
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    min: 80,
+                    max: 90,
+                    title: {
+                        display:true,
+                        text:"Мың км (оптика)",
+                        color: "#198C4E"
+                    },
+                    ticks:{
+                        color:'#198C4E',
+                        stepSize: 1,
+                        callback: function(value) {
+                            return Number.parseFloat(value).toFixed(1);
+                        }
+                    }
+                },
+                y1: {
+                    beginAtZero: false,
+                    min: 80,
+                    max: 100,
+                    position: 'right',
+                    grid: {drawOnChartArea: false},
+                    title: {
+                        display:true,
+                        text:"Интернет (%)",
+                        color: "#36cc7d"
+                    },
+                    ticks:{
+                        color:'#36cc7d',
+                        stepSize: 2,
+                        callback: function(value) {
+                            return Number.parseFloat(value).toFixed(1);
+                        }
+                    }
+                },
+                x: {
+                    ticks:{
+                        color:'#277c39'
+                    }
+                }
+            }
+        }
+    });
+    </script>
+</body>
+</html>

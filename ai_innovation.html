@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Innovation KZ — Қазақстандағы жасанды интеллект</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        :root {
+            --main-bg: #f4faf7;
+            --accent: #164095; /* AI көк */
+            --soft-accent: #2673da; /* Ашық көк */
+            --text-main: #19273a;
+            --text-secondary: #366bd1;
+            --border: #6490ca;
+            --section: #ffffff;
+            --ai-blue: #164095;
+        }
+        html {
+            background: var(--main-bg);
+            color: var(--text-main);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f4faf7 60%, #e2ecfd 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyber-header {
+            padding: 54px 18px 36px 18px;
+            background: linear-gradient(90deg, #eef4ff 70%, #edf8f5 100%);
+            /* Более светлый и свежий стиль header */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-header-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 25px;
+        }
+        .logo-svg {
+            width: 42px;
+            height: 42px;
+            margin-right: 7px;
+            vertical-align: middle;
+        }
+        .cyber-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 8px #2673da29);
+            animation: text-slide-in 1.5s cubic-bezier(.47,.97,.33,1.09);
+            background: linear-gradient(90deg, var(--accent) 0%, var(--soft-accent) 65%, #57a8ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--accent);
+        }
+        .cyber-header p {
+            font-size: 1.13rem;
+            color: var(--text-secondary);
+            margin-top: 30px;
+            margin-bottom: 0;
+            line-height: 1.7;
+            animation: fade-in-text 1.8s 0.2s backwards;
+            max-width: 880px;
+            display: inline-block;
+        }
+        @keyframes text-slide-in {
+          0% { opacity:0; filter: blur(13px) grayscale(1); transform: translateY(60px);}
+          100%{opacity:1; filter:none; transform: none;}
+        }
+        @keyframes fade-in-text {
+          0% {opacity: 0; filter: blur(7px);}
+          100% {opacity:1; filter: none;}
+        }
+        .section {
+            background: var(--section);
+            border-radius: 16px;
+            box-shadow: 0 3px 18px #16409521, 0 2px 10px #2673da12;
+            margin: 32px auto;
+            max-width: 950px;
+            padding: 39px 29px 29px 34px;
+            position: relative;
+            transition: box-shadow 0.19s;
+            border-left: 7px solid var(--accent);
+            animation: fade-in-text 1.0s;
+        }
+        .section-title {
+            font-size: 1.7rem;
+            color: var(--accent);
+            margin-bottom: 13px;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+            filter: drop-shadow(0 2px 8px #16409518);
+            animation: stagger-fade 1.1s;
+        }
+        @keyframes stagger-fade {
+            from { opacity: 0; transform: translateX(-23px);}
+            to { opacity: 1; transform: none;}
+        }
+        .stat-list {
+            margin: 0 0 22px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .stat-list li {
+            margin-bottom: 16px;
+            padding-left: 19px;
+            position: relative;
+            font-size: 1.12em;
+        }
+        .stat-list li:before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--soft-accent) 95%);
+            box-shadow: 0 0 11px var(--soft-accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 9px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
+            gap: 27px;
+            margin: 34px 0;
+        }
+        .info-box {
+            background: #eaf3fbf4;
+            border-radius: 12px;
+            padding: 23px 15px 17px 20px;
+            box-shadow: 0 2px 10px #2673da16;
+            border-left: 4px solid var(--soft-accent);
+            transition: box-shadow 0.18s, border-left-color 0.28s;
+            animation: fade-in-text 1.2s;
+        }
+        .info-box:hover {
+            box-shadow: 0 0 22px #2673da35, 0 1.5px 8px #57a8ff1b;
+            border-left-color: var(--accent);
+            transform: translateY(-3px) scale(1.01);
+        }
+        .info-box h3 {
+            font-size: 1.14rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: .6px;
+        }
+        .info-box p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0 8px 0;
+            background: #f3f9ffea;
+            border-radius: 11px;
+            overflow: hidden;
+            box-shadow: 0 1.5px 10px #2673da14;
+            font-size: 1.05em;
+        }
+        .styled-table th, .styled-table td {
+            padding: 12px 14px;
+            text-align: left;
+        }
+        .styled-table th {
+            background: linear-gradient(92deg, #57a8ff 12%, #164095 94%);
+            color: #fff;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+        }
+        .styled-table tr {
+            transition: background 0.12s;
+        }
+        .styled-table tr:hover {
+            background: #e7f0fd;
+        }
+        .styled-table td {
+            color: var(--text-main);
+            border-bottom: 1px solid #bdd1df78;
+        }
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+        .logo-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: #2673da1b;
+            border-radius: 16px;
+            padding: 3px 14px 3px 7px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: .7px;
+            margin-right: 9px;
+            box-shadow: 0 1.5px 8px #2673da11;
+        }
+        .highlight {
+            color: var(--soft-accent);
+            font-weight: bold;
+        }
+        a {
+            color: var(--soft-accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .site-header {
+            width: 100%;
+            background: linear-gradient(90deg, #164095 67%, #2673da 100%);
+            /* Градиент с основными цветами сайта */
+            box-shadow: 0 2px 10px #16409529;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 42px;
+            height: 70px;
+            position: relative;
+            z-index: 10;
+        }
+        .site-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .site-title {
+            font-size: 1.36rem;
+            font-weight: 700;
+            color: #fff;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            margin: 0;
+            text-decoration: none;
+            transition: text-shadow 0.12s;
+            display: block;
+            letter-spacing: 2px;
+            padding-right: 32px;
+            /* Просто белый текст для лучшей читаемости на синем градиенте */
+        }
+        .site-title:hover {
+            text-shadow: 0 1px 14px #29e0cf40;
+        }
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin-left: auto;
+        }
+        .nav-btn {
+            border: none;
+            background: linear-gradient(90deg, #34c1e0 70%, #29e0cf 100%);
+            color: #fff;
+            padding: 8px 20px;
+            font-size: 1em;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 1.5px 7px #21a7ce18;
+            outline: none;
+            text-decoration: none;
+            transition: background 0.18s, transform 0.11s;
+        }
+        .nav-btn:hover, .nav-btn:focus {
+            background: linear-gradient(90deg, #29e0cf 70%, #34c1e0 100%);
+            color: #eaffff;
+            transform: translateY(-2px) scale(1.04);
+        }
+        @media (max-width: 1200px) {
+            .site-header-inner {
+                max-width: 1000px;
+            }
+        }
+        @media (max-width: 990px) {
+            .site-header-inner {
+                max-width: 95vw;
+            }
+        }
+        @media (max-width: 700px) {
+            .site-header {padding: 0 8vw; height: auto;}
+            .site-header-inner {flex-direction: column; align-items: flex-start; gap: 7px; max-width: 100%;}
+            .site-title {font-size:1rem;padding-right:0;}
+            .nav-btn {padding:7px 11px;font-size:0.97em;}
+            .nav-buttons {gap: 12px; margin-left: 0; margin-top: 7px;}
+        }
+        @media (max-width: 520px) {
+            .site-header {padding: 9px 3vw;}
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html" class="site-title">Цифрлық Қазақстан 2026</a>
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-btn">Басты бет</a>
+                <a href="ai_innovation.html" class="nav-btn">Жасанды интеллект</a>
+                <a href="infro.html" class="nav-btn">Инфрақұрылым</a>
+                <a href="egov.html" class="nav-btn">eGov</a>
+            </div>
+        </div>
+    </nav>
+    <section class="cyber-header">
+        <h1>Қазақстандағы жасанды интеллект: мемлекеттік инновациялар</h1>
+        <p>
+            <b>AI Innovation KZ</b> — Қазақстан Республикасында жасанды интеллект (ЖИ) және үлкен деректер саласындағы басты бастамалар мен мемлекеттік инновацияларға арналған ақпараттық платформа. 
+            <br><br>
+            Қазақстан — Орталық Азияда цифрлық трансформация мен ЖИ енгізу бойынша көшбасшы. Мемлекет білім беру, денсаулық сақтау, көлік, агроөнеркәсіп және мемлекеттік басқаруда ЖИ технологияларын тиімді қолдануға белсенді түрде инвестиция салады.
+            <br>
+            <span style="font-size:.98em; color:var(--text-main)">
+                <b>2024 жылы:</b> Қазақстанда 50+ мемлекеттік ЖИ жобасы, 6 университетте AI зертханалары, 1000+ IT мамандары ЖИ біліктілігін арттырды.<br>
+               
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">Жасанды интеллект саласындағы мемлекеттік бағыттар</div>
+        <ul class="stat-list">
+            <li>2021 жылы қабылданған <span class="highlight">"Цифрлық Қазақстан"</span> бағдарламасы аясында ЖИ енгізу мемлекеттік приоритетке айналды.</li>
+          
+            <li>Мемлекеттік секторда <span class="highlight">денсаулық сақтау, білім беру, салық, құқық қорғау</span> салаларында ЖИ шешімдері</li>
+            <li>ЖИ және Big Data-ға арналған 600+ ашық дерекқор <a href="https://data.egov.kz/" target="_blank">data.egov.kz</a> порталында қолжетімді</li>
+            <li>AI және машиналық оқыту мамандарына жыл сайын <span class="highlight">стипендиялық бағдарламалар</span> іске қосылды</li>
+            <li>IT мектептері мен университеттерде <span class="highlight">AI зертханалары</span> ашылып, стартаптарға мемлекеттік гранттар бөлінеді</li>
+        </ul>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Мемлекеттік бастамалар</h3>
+<p>
+    • e-Otinish — азаматтардың өтініштерін ЖИ арқылы автоматты талдау<br>
+    • «Цифрлық үкімет» — мемлекеттік қызметтерде ЖИ-негізіндегі чат-боттар<br>
+    • KazLLM — қазақ тіліне арналған ұлттық тілдік модель<br>
+    • Денсаулық сақтау деректерін талдау — медициналық статистиканы ЖИ арқылы өңдеу<br>
+    • Бейнеаналитика және Big Data — қоғамдық қауіпсіздік пен инфрақұрылымды талдау
+</p>
+
+            </div>
+            <div class="info-box">
+                <h3>Білім және кадрлар</h3>
+<p>
+    • «AI-Sana» — жасанды интеллект бойынша студенттер мен мамандарды оқыту ұлттық бағдарламасы (30+ ЖОО, 38 бағдарлама)<br>
+    • ЖИ пәндері барлық университеттерде енгізілді, мыңдаған студенттер курстардан сертификат алды<br>
+    • Astana IT University — AI Science Hackathon және зерттеу жобалар ұйымдастырушысы
+</p>
+
+            </div>
+            <div class="info-box">
+                <h3>Инфрақұрылым және заңнама</h3>
+<p>
+    • data.egov.kz — ашық деректердің ұлттық порталы (Big Data негізі)<br>
+    • «Жасанды интеллектті дамыту тұжырымдамасы (2024–2029)» — мемлекеттік стратегиялық құжат<br>
+    • ЖИ этикасы қағидаттары — жауапты және қауіпсіз қолдануға бағытталған нормалар<br>
+    • Мемлекеттік бұлтты инфрақұрылым (G-Cloud, Alem.cloud) — ЖИ жобаларын іске асыруға арналған платформа
+</p>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">Негізгі мемлекеттік AI жобалар және нәтижелер</div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>qMed</h3>
+<p>
+    • Дәрігерлер мен пациенттерге арналған қазақстандық AI-медициналық платформа<br>
+    • Симптомдарды талдау және бастапқы медициналық кеңес беру<br>
+    • Амбулаториялық бақылауды автоматтандыру және жүктемені азайту
+</p>
+
+            </div>
+            <div class="info-box">
+                <h3>AI‑Sana</h3>
+<p>
+    • Ұлттық ЖИ‑саласындағы білім беру бағдарламасы: жасанды интеллект негіздерін оқыту<br>
+    • 429 000+ қатысушы түрлі платформада курстардан өтті (Huawei, Coursera, Astana Hub)<br>
+    • Студенттер мен жас зерттеушілерге арналған AI‑жобалар мен стартаптарды дамыту мүмкіндіктері бар
+</p>
+
+            </div>
+            <div class="info-box">
+                <h3>GovAI (eGov AI)</h3>
+                <p>
+                    • eGov.kz және eGov Mobile порталында жасанды интеллект негізіндегі виртуалды ассистент<br>
+                    • Азаматтарға мемлекеттік қызметтер бойынша ақпарат табуға және навигация жасауға көмектеседі<br>
+                    • Чат-форматта сұрақтарға автоматты түрде жауап беріп, қызметтерге қол жеткізуді жеңілдетеді
+                </p>
+                
+                
+            </div>
+        </div>
+
+        <div style="max-width:900px;margin:29px auto;">
+            <canvas id="aiProjectsChart" style="max-width:100%;"></canvas>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">AI жобалары мен мамандар статистикасы (2021-2025)</div>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Жоба атауы</th>
+                    <th>Сала</th>
+                    <th>Жетістігі</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>eGov AI (виртуалды ассистент)</td>
+                    <td>Мемлекеттік сервис</td>
+                    <td>eGov.kz және eGov Mobile порталында ЖИ‑ассистент іске қосылды, азаматтарға қызмет іздеуді жеңілдетеді</td>
+                </tr>
+                <tr>
+                    <td>AI‑Sana</td>
+                    <td>Білім</td>
+                    <td>Қазақстандағы білім беру саласында ЖИ негіздері бойынша мыңдаған студент оқытылды (курс пен семинарлар арқылы)</td>
+                </tr>
+                <tr>
+                    <td>IBM Watson Oncology (eGov.kz жобасы аясында)</td>
+                    <td>Денсаулық</td>
+                    <td>ЖИ‑туралы жүйе онкологиялық емдеу тактикасын таңдауға көмек көрсетеді (үкіметтік порталда ұсынылған шешімдер ішінде)</td>
+                </tr>
+                <tr>
+                    <td>Оперативті бейнеанализ (OPER 2.0)</td>
+                    <td>Қауіпсіздік</td>
+                    <td>Қоғамдық тәртіпті бақылау жүйелерінде ЖИ‑негізіндегі бейнеаналитика енгізілді</td>
+                </tr>
+                <tr>
+                    <td>AI‑агро жобалар (сатellite/гео‑аналитика)</td>
+                    <td>Ауыл шаруашылығы</td>
+                    <td>Сателлиттік мониторинг арқылы 116 млн га жерді бақылау және анализ жасау жүйесі енгізілді</td>
+                </tr>
+                <tr>
+                    <td>AlemLLM / Ұлттық ЖИ платформасы</td>
+                    <td>Инфрақұрылым</th>
+                    <td>Ұлттық суперкомпьютер мен ЖИ платформасы әзірленіп, 100+ AI агент мемлекеттік сервистер автоматизациясында қолданылды</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </section>
+
+    <footer style="text-align:center;margin:40px 0 20px 0;color:var(--text-secondary);font-size:.97em;">
+        © 2024 AI Innovation KZ | Дереккөздер: ҚР ЦДИАӨМ, open data порталы, Qmed.kz, eGov.kz, aisana.gov.kz
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    // AI жобаларының саны (2021-2024)
+    const aiProjectsCtx = document.getElementById('aiProjectsChart').getContext('2d');
+    new Chart(aiProjectsCtx, {
+        type: 'line',
+        data: {
+            labels: ['2021', '2022', '2023', '2024'],
+            datasets: [{
+                label: 'Мемлекеттік AI жобалар саны',
+                data: [14, 27, 41, 62],
+                backgroundColor: 'rgba(38,115,218,0.14)',
+                borderColor: 'rgba(22,64,149,0.92)',
+                borderWidth: 3,
+                pointBackgroundColor: 'rgba(22,64,149,1)',
+                fill: true,
+                tension: 0.23
+            }]
+        },
+        options: {
+            plugins:{
+                legend: {display: true, labels: {color: "#164095", font: {weight:'bold'}}}
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {display:true, text:"Жобалар саны", color: "#366bd1"},
+                    ticks:{color:'#366bd1'}
+                },
+                x: {ticks:{color:'#366bd1'}}
+            }
+        }
+    });
+
+   
+    </script>
+</body>
+</html>
